@@ -451,10 +451,15 @@ form.addEventListener('submit', async e => {
   }
   function go(id) {
     const t = document.getElementById(id); if (!t || !lp.contains(t)) return false;
-    const y = t.getBoundingClientRect().top + scrollY - Math.max(fixedTop(), 70) - 12;
-    scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
-    // the menu may appear while scrolling: correct once it has settled
-    setTimeout(() => { const d = t.getBoundingClientRect().top - (fixedTop() + 12); if (Math.abs(d) > 8) scrollBy({ top: d, behavior: 'smooth' }); }, 700);
+    const target = () => Math.max(0, t.getBoundingClientRect().top + scrollY - Math.max(fixedTop(), 70) - 12);
+    const from = scrollY, to = target(), t0 = performance.now(), dur = 450;
+    const step = now => {
+      const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      scrollTo(0, from + (to - from) * e);
+      if (k < 1) requestAnimationFrame(step);
+      else setTimeout(() => { const fix = target(); if (Math.abs(fix - scrollY) > 8) scrollTo(0, fix); }, 250);
+    };
+    requestAnimationFrame(step);
     return true;
   }
   lp.addEventListener('click', e => {
