@@ -1,0 +1,408 @@
+<!-- Aleron Academy - courses landing for Tilda block T123 (Embed HTML code).
+     Paste the whole file into ONE T123 block on an empty page, then publish.
+     Pixel: uses the Meta Pixel the site already loads; no second pixel, no cookie banner. -->
+<style>
+#aleron-lp h1,#aleron-lp h2,#aleron-lp h3,#aleron-lp h4,#aleron-lp p,#aleron-lp li,#aleron-lp a,#aleron-lp span,#aleron-lp b,#aleron-lp strong,#aleron-lp small,#aleron-lp label,#aleron-lp blockquote,#aleron-lp figcaption,#aleron-lp summary,#aleron-lp dt,#aleron-lp dd{font-family:inherit;color:inherit}
+
+#aleron-lp{--ink:#151515;--paper:#f9f8f6;--yellow:#ffcb08;--muted:#5e5c55;--line:#d9d6cf}
+#aleron-lp,#aleron-lp *{box-sizing:border-box}#aleron-lp [hidden]{display:none!important}#aleron-lp{scroll-behavior:smooth}#aleron-lp{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 Arial,sans-serif}#aleron-lp a{color:inherit}#aleron-lp img{max-width:100%;display:block}#aleron-lp h1,#aleron-lp h2,#aleron-lp h3,#aleron-lp p{margin:0}#aleron-lp h1,#aleron-lp h2{letter-spacing:-.055em;line-height:1.02}#aleron-lp h1{font-size:clamp(3rem,6vw,6.2rem);max-width:12ch}#aleron-lp h2{font-size:clamp(2.2rem,4.6vw,4rem);max-width:16ch}#aleron-lp h3{font-size:1.3rem;line-height:1.15;letter-spacing:-.025em}#aleron-lp p{max-width:62ch}
+#aleron-lp .wrap{width:min(1190px,calc(100% - 64px));margin-inline:auto}#aleron-lp .eyebrow{font-size:.78rem;letter-spacing:.15em;font-weight:800;text-transform:uppercase}
+#aleron-lp .button{display:inline-flex;justify-content:center;align-items:center;gap:14px;padding:.8rem 1.2rem;min-height:48px;background:var(--yellow);color:var(--ink);border:1px solid var(--yellow);border-radius:3px;font:700 .97rem/1.2 Arial,sans-serif;text-decoration:none;cursor:pointer;text-align:center}#aleron-lp .button:hover{background:#ffe062;border-color:#ffe062}#aleron-lp .button.ghost{background:transparent;color:inherit;border-color:currentColor}#aleron-lp .button.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+#aleron-lp .button:focus-visible,#aleron-lp a:focus-visible,#aleron-lp input:focus-visible,#aleron-lp select:focus-visible,#aleron-lp textarea:focus-visible,#aleron-lp summary:focus-visible,#aleron-lp button:focus-visible{outline:3px solid #5482cf;outline-offset:4px}
+#aleron-lp .skip{position:absolute;left:-999px}#aleron-lp .skip:focus{left:12px;top:12px;z-index:99;background:#fff;padding:8px}
+#aleron-lp .bar{background:var(--ink);color:#fff;border-bottom:1px solid #454545;position:sticky;top:0;z-index:40}#aleron-lp .bar .wrap{display:flex;align-items:center;gap:26px;min-height:76px}#aleron-lp .brand img{width:160px}#aleron-lp .nav{display:flex;gap:22px;margin-left:auto;font-size:.92rem}#aleron-lp .nav a{text-decoration:none;color:#dcd9d0}#aleron-lp .nav a:hover{color:#fff}
+#aleron-lp .hero{background:var(--ink);color:#fff}#aleron-lp .hero-bg{position:relative;background-color:var(--ink);background-size:cover;background-position:right 30%}#aleron-lp .hero-bg::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,21,21,.95) 0%,rgba(21,21,21,.88) 42%,rgba(21,21,21,.55) 70%,rgba(21,21,21,.4) 100%)}#aleron-lp .hero-bg>.wrap{position:relative}#aleron-lp .hero-bg .wrap{min-height:520px}
+#aleron-lp .h1-lines{max-width:none}#aleron-lp .h1-lines span{display:block;white-space:nowrap}#aleron-lp .hero h1.h1-lines{font-size:clamp(2.1rem,5.2vw,5.4rem)}
+#aleron-lp .hero-slogan{align-self:start;justify-self:end;max-width:420px;text-align:right;padding-top:6px}#aleron-lp .hero-slogan p{font-size:clamp(1.5rem,2.6vw,2.4rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;color:#fff;margin:0 0 18px}#aleron-lp .hero-slogan p span{color:var(--yellow)}@media(max-width:760px){#aleron-lp .hero-slogan{justify-self:start;text-align:left;max-width:none;padding-top:0;order:-1}#aleron-lp .hero-slogan .button{display:none}#aleron-lp .hero-slogan p{font-size:1.3rem;margin:0}}
+#aleron-lp .reviews{background:var(--ink);color:#fff}#aleron-lp .reviews h2{color:#fff;max-width:none}#aleron-lp .rv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}#aleron-lp .rv{margin:0;background:#232323;border-top:4px solid var(--yellow);padding:22px 20px;display:flex;flex-direction:column;justify-content:space-between;gap:18px}#aleron-lp .rv blockquote{margin:0;font-size:.98rem;line-height:1.55;color:#ecebe6}#aleron-lp .rv figcaption{display:flex;gap:12px;align-items:center;font-size:.86rem;color:#bdbab2;line-height:1.35}#aleron-lp .rv figcaption b{color:#fff;font-size:.95rem}#aleron-lp .rv small{color:var(--yellow);font-weight:700;font-size:.78rem}#aleron-lp .av{flex:none;width:40px;height:40px;border-radius:50%;background:var(--yellow);color:var(--ink);display:grid;place-items:center;font-weight:800}@media(max-width:1000px){#aleron-lp .rv-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){#aleron-lp .rv-grid{grid-template-columns:1fr}}
+#aleron-lp .hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:40px;align-items:center;padding-block:60px 70px}#aleron-lp .hero .eyebrow{color:var(--yellow);margin-bottom:18px}#aleron-lp .hero .lead{font-size:1.18rem;color:#e0dfd9;margin-block:20px 24px;max-width:44ch}#aleron-lp .hero .ctas{display:flex;flex-wrap:wrap;gap:12px}#aleron-lp .hero .pay-hook{margin-top:18px;color:var(--yellow);font-weight:700;max-width:46ch}#aleron-lp .hero .pay-hook a{font-weight:400;color:#bdbab1;font-size:.82rem}
+#aleron-lp .hero figure{margin:0;position:relative;min-height:380px;display:grid}#aleron-lp .hero figure img{width:100%;height:100%;object-fit:cover}#aleron-lp figcaption.tag{position:absolute;bottom:0;left:0;background:var(--yellow);color:var(--ink);padding:.45rem .8rem;font-size:.76rem;font-weight:800}
+#aleron-lp .stats{background:var(--yellow)}#aleron-lp .stats .wrap{display:grid;grid-template-columns:repeat(3,1fr);padding-block:22px;gap:12px}#aleron-lp .stat+.stat{border-left:1px solid #806500;padding-left:22px}#aleron-lp .stat b{font-size:1.6rem;letter-spacing:-.03em;display:block;line-height:1.1}#aleron-lp .stat span{font-size:.9rem}
+#aleron-lp .section{padding-block:68px;border-bottom:1px solid var(--line)}#aleron-lp .split{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:55px}#aleron-lp .intro{margin-top:15px;color:var(--muted)}#aleron-lp .white{background:#fff}
+#aleron-lp .why{list-style:none;margin:0;padding:0}#aleron-lp .why li{padding:17px 0;border-bottom:1px solid var(--line)}#aleron-lp .why li:first-child{border-top:1px solid var(--line)}#aleron-lp .why p{color:var(--muted);margin-top:5px}#aleron-lp .why a{color:var(--ink)}
+#aleron-lp .side-ph{margin-top:28px;aspect-ratio:4/3;overflow:hidden}#aleron-lp .side-ph img{width:100%;height:100%;object-fit:cover}
+#aleron-lp .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}#aleron-lp .card{background:#fff;border-top:4px solid var(--yellow);padding:22px;display:flex;flex-direction:column}#aleron-lp .card .ph{margin:-22px -22px 16px;aspect-ratio:3/2;overflow:hidden}#aleron-lp .card .ph img{width:100%;height:100%;object-fit:cover}#aleron-lp .card .n{font-weight:800;font-size:.8rem;letter-spacing:.12em}#aleron-lp .card p{color:var(--muted);margin:8px 0 14px}#aleron-lp .card .more{margin-top:auto;font-weight:700;text-decoration:none}#aleron-lp .card .more:hover{text-decoration:underline}
+#aleron-lp /* trade switch */
+.switch{display:inline-flex;border:1px solid var(--ink);border-radius:3px;overflow:hidden;margin-top:24px}#aleron-lp .switch button{font:700 .95rem Arial,sans-serif;padding:.7rem 1.1rem;background:#fff;color:var(--ink);border:0;cursor:pointer;min-height:44px}#aleron-lp .switch button[aria-pressed=true]{background:var(--ink);color:#fff}#aleron-lp .switch-note{margin-top:10px;font-size:.88rem;color:var(--muted)}
+#aleron-lp /* outcomes */
+.outcomes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}#aleron-lp .oc{background:#fff;border:1px solid var(--line);padding:20px;display:flex;flex-direction:column}#aleron-lp .oc .lvl,#aleron-lp .price .lvl{display:inline-block;background:var(--ink);color:var(--yellow);font-weight:800;font-size:.72rem;letter-spacing:.12em;padding:.25rem .55rem;margin-bottom:12px;align-self:flex-start}#aleron-lp .oc img{border:1px solid var(--line);margin-bottom:14px}#aleron-lp .oc img.portrait{aspect-ratio:1250/922;object-fit:contain;background:#f1efe9;padding:6px}#aleron-lp .oc p{color:var(--muted);margin-top:6px}#aleron-lp .nvq-card{aspect-ratio:1250/922;background:var(--ink);color:#fff;display:grid;place-content:center;text-align:center;margin-bottom:14px;padding:18px}#aleron-lp .nvq-card b{font-size:2.6rem;letter-spacing:-.04em;color:var(--yellow);line-height:1}#aleron-lp .nvq-card span{font-size:.9rem;color:#d4d1c8;margin-top:6px}
+#aleron-lp /* programme */
+.modules{margin-top:30px;border-top:1px solid var(--line)}#aleron-lp .module{border-bottom:1px solid var(--line)}#aleron-lp .module summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:52px 1fr auto;gap:16px;align-items:baseline;padding:20px 0}#aleron-lp .module summary::-webkit-details-marker{display:none}#aleron-lp .module .num{font-weight:800}#aleron-lp .module .unit{font-size:.8rem;color:var(--muted);white-space:nowrap}#aleron-lp .module summary>.num{grid-row:1/span 2}#aleron-lp .module .unit{grid-column:2;grid-row:2}#aleron-lp .module summary::after{content:"+";font-weight:800;font-size:1.4rem;line-height:1;grid-column:3;grid-row:1}#aleron-lp .module[open] summary::after{content:"–"}#aleron-lp .module .desc{color:var(--muted);margin-top:4px;font-size:.95rem}#aleron-lp .module .body{padding:0 0 22px 68px}#aleron-lp .topics{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}#aleron-lp .topics li{background:#fff;border:1px solid var(--line);padding:.35rem .65rem;font-size:.86rem}
+#aleron-lp /* prices */
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}#aleron-lp .price{background:#fff;border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;position:relative}#aleron-lp .price.rec{border:2px solid var(--ink)}#aleron-lp .price .badge{position:absolute;top:-12px;right:18px;background:var(--yellow);font-size:.72rem;font-weight:800;letter-spacing:.1em;padding:.25rem .55rem}#aleron-lp .price h3{font-size:1.6rem}#aleron-lp .price .what{color:var(--muted);margin:6px 0 16px}#aleron-lp .price .amt{font-size:2.6rem;font-weight:800;letter-spacing:-.05em;line-height:1}#aleron-lp .price .vat{font-size:.82rem;color:var(--muted);margin:6px 0 16px}#aleron-lp .price ul{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:8px}#aleron-lp .price li{padding-left:24px;position:relative;font-size:.95rem}#aleron-lp .price li::before{content:"";position:absolute;left:0;top:.45em;width:12px;height:7px;border-left:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(-45deg)}#aleron-lp .price .note{font-size:.84rem;color:var(--muted);margin-bottom:16px;border-left:3px solid var(--yellow);padding-left:10px}#aleron-lp .price .acts{margin-top:auto;display:grid;gap:8px}
+#aleron-lp .team-banner{margin-top:22px;background:var(--ink);color:#fff;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}#aleron-lp .team-banner p{color:#d4d1c8}#aleron-lp .team-banner b{color:#fff}
+#aleron-lp .upg{margin-top:34px}#aleron-lp .upg h3{margin-bottom:12px}#aleron-lp .upg table{width:100%;border-collapse:collapse;background:#fff;font-size:.95rem}#aleron-lp .upg th,#aleron-lp .upg td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}#aleron-lp .upg th{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}#aleron-lp .upg td:last-child{font-weight:800;white-space:nowrap}#aleron-lp .upg p{font-size:.88rem;color:var(--muted);margin-top:10px}
+#aleron-lp /* photo bg */
+.bgph{position:relative;color:#fff;background-color:var(--ink);background-size:cover;background-position:center}#aleron-lp .bgph::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,21,21,.92) 0%,rgba(21,21,21,.8) 55%,rgba(21,21,21,.62) 100%)}#aleron-lp .bgph>.wrap{position:relative}#aleron-lp .bgph .intro,#aleron-lp .bgph p{color:#dcd9d0}
+#aleron-lp .teams ul{margin:18px 0 24px;padding-left:20px;color:#e7e4dc;display:grid;gap:6px}
+#aleron-lp .webinar-strip{background:var(--yellow)}#aleron-lp .webinar-strip .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:24px;flex-wrap:wrap}#aleron-lp .webinar-strip b{font-size:1.3rem;letter-spacing:-.02em}
+#aleron-lp .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}#aleron-lp .gallery figure{margin:0;aspect-ratio:3/2;overflow:hidden}#aleron-lp .gallery img{width:100%;height:100%;object-fit:cover}
+#aleron-lp /* form */
+.enquire{padding-block:74px;scroll-margin-top:80px}#aleron-lp .form{background:#fff;color:var(--ink);padding:28px}#aleron-lp .form .row{display:grid;gap:14px;grid-template-columns:1fr 1fr}#aleron-lp .form label{font-weight:700;font-size:.92rem;display:block;margin-bottom:15px}#aleron-lp .form input:not([type=checkbox]),#aleron-lp .form select,#aleron-lp .form textarea{display:block;width:100%;border:1px solid #a6a49b;border-radius:3px;min-height:46px;padding:9px 12px;font:inherit;margin-top:5px;background:#fff;color:var(--ink)}#aleron-lp .form textarea{min-height:90px;resize:vertical}#aleron-lp .form .opt{font-weight:400;color:#5d5b54}#aleron-lp .form .check{display:grid;grid-template-columns:22px 1fr;gap:10px;font-weight:400;font-size:.88rem;color:#3d3b36}#aleron-lp .form .check input{width:18px;height:18px;margin:2px 0 0}#aleron-lp .form .fine{font-size:.82rem;color:#5d5b54;margin:12px 0 0}
+#aleron-lp .done{display:none}#aleron-lp .done.show{display:block}#aleron-lp .done h3{font-size:1.7rem;margin-bottom:8px}#aleron-lp .err{color:#a3261b;font-weight:700;margin-top:12px}#aleron-lp .err:empty{display:none}
+#aleron-lp .faq details{padding:13px 0;border-top:1px solid var(--line)}#aleron-lp .faq details:last-child{border-bottom:1px solid var(--line)}#aleron-lp .faq summary{cursor:pointer;font-weight:700}#aleron-lp .faq details p{margin:8px 0 0;color:var(--muted)}
+#aleron-lp footer{padding:28px 0;font-size:.86rem;background:var(--ink);color:#d4d1c8}#aleron-lp footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:15px}#aleron-lp footer nav{display:flex;flex-wrap:wrap;gap:16px}#aleron-lp footer a{color:#d4d1c8}
+#aleron-lp .cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;max-width:560px;margin-inline:auto;background:#fff;color:var(--ink);border:1px solid var(--line);border-top:4px solid var(--yellow);box-shadow:0 10px 30px rgba(0,0,0,.25);padding:18px 20px}#aleron-lp .cookie[hidden]{display:none}#aleron-lp .cookie p{font-size:.9rem;color:#3d3b36}#aleron-lp .cookie .acts{display:flex;gap:10px;margin-top:12px}#aleron-lp .cookie .button{min-height:42px;padding:.6rem 1rem}#aleron-lp .cookie:not([hidden]) ~ .sticky-cta{display:none}
+#aleron-lp .cookie-link{background:none;border:0;padding:0;font:inherit;text-decoration:underline;cursor:pointer;color:inherit}
+#aleron-lp .sticky-cta{display:none}
+@media(max-width:960px){#aleron-lp .nav{display:none}#aleron-lp .bar .button{margin-left:auto}}
+@media(max-width:860px){#aleron-lp .cards,#aleron-lp .outcomes,#aleron-lp .prices,#aleron-lp .gallery{grid-template-columns:1fr}#aleron-lp .price.rec{order:-1}}
+@media(max-width:760px){
+#aleron-lp .wrap{width:calc(100% - 36px)}#aleron-lp h1{font-size:2.7rem}#aleron-lp h2{font-size:2rem}
+#aleron-lp .bar .wrap{min-height:64px}#aleron-lp .brand img{width:132px}#aleron-lp .bar .button{padding-inline:.8rem;font-size:.86rem;min-height:42px}
+#aleron-lp .hero .wrap,#aleron-lp .split{grid-template-columns:1fr;gap:22px}#aleron-lp .hero .wrap{padding-block:34px}#aleron-lp .hero figure{min-height:0;aspect-ratio:16/9}#aleron-lp .hero-bg{background-position:72% 30%}#aleron-lp .hero-bg::before{background:rgba(21,21,21,.82)}#aleron-lp .hero-bg .wrap{min-height:0}#aleron-lp .hero .lead{font-size:1.04rem}#aleron-lp .hero .ctas .button{width:100%}
+#aleron-lp .stats .wrap{padding-block:14px;gap:6px}#aleron-lp .stat+.stat{padding-left:10px}#aleron-lp .stat b{font-size:1.15rem}#aleron-lp .stat span{font-size:.75rem}
+#aleron-lp .section,#aleron-lp .enquire{padding-block:44px}#aleron-lp .side-ph{display:none}
+#aleron-lp .cards{gap:12px;margin-top:22px}#aleron-lp .card{display:grid;grid-template-columns:96px 1fr;column-gap:14px;padding:14px;border-top-width:3px}#aleron-lp .card .ph{grid-row:1/span 4;margin:0;aspect-ratio:1;width:96px}#aleron-lp .card p{margin:4px 0 8px;font-size:.92rem}
+#aleron-lp .outcomes{gap:12px}#aleron-lp .oc{display:grid;grid-template-columns:120px 1fr;column-gap:14px;padding:14px}#aleron-lp .oc img,#aleron-lp .oc .nvq-card{grid-row:1/span 3;margin:0;width:120px}#aleron-lp .nvq-card b{font-size:1.5rem}#aleron-lp .nvq-card span{font-size:.7rem}
+#aleron-lp .module summary{grid-template-columns:34px 1fr auto;gap:10px}#aleron-lp .module .unit{white-space:normal}#aleron-lp .module .body{padding-left:44px}
+#aleron-lp .switch{display:flex;width:100%}#aleron-lp .switch button{flex:1}
+#aleron-lp .price{padding:20px}#aleron-lp .price .amt{font-size:2.2rem}
+#aleron-lp .upg table{font-size:.86rem}#aleron-lp .upg th,#aleron-lp .upg td{padding:10px 8px}
+#aleron-lp .gallery{grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}#aleron-lp .gallery figure{aspect-ratio:1}
+#aleron-lp .form{padding:20px}#aleron-lp .form .row{grid-template-columns:1fr;gap:0}#aleron-lp .form .button{width:100%}
+#aleron-lp .webinar-strip .button{width:100%}
+#aleron-lp .sticky-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:50;box-shadow:0 6px 20px rgba(0,0,0,.35);transition:transform .25s,opacity .25s}#aleron-lp .sticky-cta.hide{transform:translateY(140%);opacity:0;pointer-events:none}
+#aleron-lp footer{padding-bottom:88px}
+}
+@media(prefers-reduced-motion:reduce){#aleron-lp{scroll-behavior:auto}#aleron-lp .sticky-cta{transition:none}}
+
+#aleron-lp{display:block;position:relative;text-align:left;-webkit-font-smoothing:antialiased}#aleron-lp [id]{scroll-margin-top:90px}#aleron-lp input,#aleron-lp select,#aleron-lp textarea,#aleron-lp button{font-family:Arial,sans-serif}
+
+</style>
+<div id="aleron-lp">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<main id="main">
+<section class="hero hero-bg" id="top" aria-labelledby="h1" style="background-image:url(__IMG_BASE__hero.webp)" role="region"><div class="wrap">
+<div>
+<div class="eyebrow">Aleron Academy · Passive fire protection training</div>
+<h1 id="h1" class="h1-lines"><span>Learn fire stopping</span> <span>&amp; fire door</span> <span>installation.</span></h1>
+<p class="lead">Learn from a working fire protection contractor. Study online, get hands-on practice with our team and follow a clear route to NVQ Level 2.</p>
+<div class="ctas"><a class="button" href="#courses">Compare courses <span aria-hidden="true">↗</span></a><a class="button ghost" href="#enquire" data-enquire>Help me choose</a></div>
+<p class="pay-hook">This is what you can earn: £230–£250/day, advertised for experienced fire stoppers.</p>
+</div>
+<aside class="hero-slogan" aria-label="Start your career"><p>Start a career now and get certified in <span>fire protection</span></p><a class="button" href="#courses">Choose your route <span aria-hidden="true">↗</span></a></aside>
+</div></section>
+
+<div class="stats"><div class="wrap">
+<div class="stat"><b>16 years</b><span>in passive fire protection</span></div>
+<div class="stat"><b>3,000+</b><span>projects delivered</span></div>
+<div class="stat"><b>1,500+</b><span>clients across the UK</span></div>
+</div></div>
+
+<section class="section white" aria-labelledby="why"><div class="wrap split">
+<div><div class="eyebrow">A career in passive fire protection</div><h2 id="why">Build a career in a specialist trade.</h2><p class="intro">Fire stopping and fire door installation are skilled, safety-critical trades. Clients increasingly ask installers to show their training.</p><div class="side-ph"><img src="__IMG_BASE__why.webp" alt="Aleron operative sealing at the head of a blockwork wall"></div></div>
+<ul class="why">
+<li><h3>A certificate, a diploma and a route to NVQ</h3><p>Get an Academy certificate after Theory and a diploma after Practical. Work towards NVQ Level 2 once you meet the assessment requirements.</p></li>
+<li><h3>Precise work, less heavy lifting</h3><p>The work is about measuring, fitting, sealing and checking. Physical demands vary by role and site.</p></li>
+<li><h3>Demand driven by building safety rules</h3><p>The law requires fire stopping and fire doors to be installed by competent people. In England, responsible persons in many multi-occupied residential buildings must check fire doors regularly.</p></li>
+<li><h3>Taught the way our own teams work</h3><p>Lessons are filmed on real Aleron projects, using the materials, details and records you’ll meet on site.</p></li>
+</ul>
+</div></section>
+
+<section class="section" id="routes" aria-labelledby="who"><div class="wrap">
+<div class="eyebrow">Who it’s for</div>
+<h2 id="who">Start where you are.</h2>
+<div class="cards">
+<div class="card"><div class="ph"><img src="__IMG_BASE__w1.webp" alt="Aleron operative preparing materials on site"></div><div class="n">01 · New to the trade</div><h3>Start with Theory</h3><p>Get to grips with fire ratings, drawings and the work you’ll see on site, at your own pace.</p><a class="more" href="#courses" data-level="theory">Explore Theory →</a></div>
+<div class="card"><div class="ph"><img src="__IMG_BASE__w2.webp" alt="Tradesperson with power tools in a service cupboard"></div><div class="n">02 · Already in construction</div><h3>Go for Practical</h3><p>Build on your site experience and learn the details specific to fire stopping or fire doors.</p><a class="more" href="#courses" data-level="practical">Explore Practical →</a></div>
+<div class="card"><div class="ph"><img src="__IMG_BASE__w3.webp" alt="Aleron fire stopper working at an electrical riser"></div><div class="n">03 · Already installing</div><h3>Aim for NVQ Level 2</h3><p>Find out what evidence you need to put your existing site work towards an NVQ assessment.</p><a class="more" href="#courses" data-level="nvq">Check NVQ route →</a></div>
+</div>
+</div></section>
+
+<section class="section white" id="programme" aria-labelledby="progh"><div class="wrap">
+<div class="eyebrow">The programme</div>
+<h2 id="progh">Look inside the course.</h2>
+<p class="intro">Each programme is three online modules: shared Fundamentals plus two trade modules. Trade modules are mapped to the NVQ Level 2 units shown.</p>
+<div class="switch" role="group" aria-label="Choose a trade"><button type="button" data-trade="stopping" aria-pressed="true">Fire Stopping</button><button type="button" data-trade="doors" aria-pressed="false">Fire Doors</button></div>
+<div class="modules" id="modules"></div>
+</div></section>
+
+<section class="section" aria-labelledby="outh"><div class="wrap">
+<div class="eyebrow">Certificates &amp; qualifications</div>
+<h2 id="outh">What you’ll receive.</h2>
+<div class="outcomes">
+<div class="oc"><img src="__IMG_BASE__cert.webp" alt="Sample Aleron Academy Certificate of Completion"><span class="lvl">THEORY</span><h3>Certificate of Completion</h3><p>Issued in your name by Aleron Academy after you pass the online assessment.</p></div>
+<div class="oc"><img src="__IMG_BASE__diploma.webp" alt="Sample Aleron Academy Diploma"><span class="lvl">PRACTICAL</span><h3>Aleron Academy Diploma</h3><p>Issued after you complete the practical training and your work is assessed by our team.</p></div>
+<div class="oc"><img class="portrait" src="__IMG_BASE__nvq.webp" alt="Sample NVQ Level 2 certificate in Passive Fire Protection, personal details hidden"><span class="lvl">NVQ ROUTE</span><h3>NVQ Level 2</h3><p>A nationally recognised vocational qualification, assessed by an independent assessor using evidence from your own site work.</p></div>
+</div>
+<p class="intro" style="font-size:.88rem">The Academy certificate and diploma are Aleron Academy awards, not regulated qualifications. The NVQ certificate is issued by the awarding organisation; the example shown is a real certificate with personal details hidden.</p>
+</div></section>
+
+<section class="section reviews" id="reviews" aria-labelledby="revh"><div class="wrap">
+<div class="eyebrow">Reviews</div>
+<h2 id="revh">What our learners say.</h2>
+<div class="rv-grid"><figure class="rv"><blockquote>“The practical day was the part that made it stick. You do the detail yourself, someone watches how you do it, and you find out there and then what you were getting wrong.”</blockquote><figcaption><span class="av" aria-hidden="true">A</span><span><b>Adam L.</b><br>Fire door installer<br><small>Fire Doors · Theory + Practical</small></span></figcaption></figure><figure class="rv"><blockquote>“Doing the theory on my phone made it easy to fit around work. The knowledge checks show you straight away what to go back over.”</blockquote><figcaption><span class="av" aria-hidden="true">D</span><span><b>Daniel P.</b><br>PFP installer<br><small>Fire Doors · Theory</small></span></figcaption></figure><figure class="rv"><blockquote>“I’d worked with these products before, but some things had never been properly explained. The sections on test evidence, penetration types and common mistakes were especially useful.”</blockquote><figcaption><span class="av" aria-hidden="true">A</span><span><b>Alex P.</b><br>Fire stopping installer<br><small>Fire Stopping · Theory + Practical</small></span></figcaption></figure><figure class="rv"><blockquote>“The course explained why a firestopping system has to be installed a certain way, not just which product to use. I’m much more confident checking the tested detail before I start.”</blockquote><figcaption><span class="av" aria-hidden="true">N</span><span><b>Nick S.</b><br>Fire stopping installer<br><small>Fire Stopping · Theory</small></span></figcaption></figure></div>
+</div></section>
+<section class="section white" id="courses" aria-labelledby="pricesh" style="scroll-margin-top:70px"><div class="wrap">
+<div class="eyebrow">Courses &amp; prices</div>
+<h2 id="pricesh">Choose your training route.</h2>
+<p class="intro">Pick a trade, then the level that fits your experience.</p>
+<div class="switch" role="group" aria-label="Choose a trade"><button type="button" data-trade="stopping" aria-pressed="true">Fire Stopping</button><button type="button" data-trade="doors" aria-pressed="false">Fire Doors</button></div>
+<p class="switch-note" id="switch-note" aria-live="polite"></p>
+<div class="prices" id="prices"></div>
+<div class="team-banner"><p><b>Training 3 or more people?</b> Group prices are lower than the list price. Tell us how many people and we’ll send a quote.</p><a class="button" href="#enquire" data-enquire="team">Get a team quote ↗</a></div>
+</div></section>
+
+
+<section class="section white" aria-labelledby="sites"><div class="wrap">
+<div class="eyebrow">From our sites</div>
+<h2 id="sites" style="max-width:20ch">Knowledge and experience from real practitioners</h2>
+<div class="gallery">
+<figure><img src="__IMG_BASE__g1.webp" alt="Operative applying sealant with a gun in an electrical cupboard"></figure>
+<figure><img src="__IMG_BASE__g2.webp" alt="Fire batt being cut to size on site"></figure>
+<figure><img src="__IMG_BASE__g3.webp" alt="Operative sealing the head of a blockwork wall"></figure>
+<figure><img src="__IMG_BASE__g4.webp" alt="Operative mixing fire-stopping compound"></figure>
+<figure><img src="__IMG_BASE__g5.webp" alt="Operative bringing fire-rated board into a service riser"></figure>
+<figure><img src="__IMG_BASE__g6.webp" alt="Inspecting a fire door with a torch"></figure>
+</div>
+</div></section>
+
+<section class="section bgph teams" id="teams" aria-labelledby="teamh" style="background-image:url(__IMG_BASE__bgteam.webp)"><div class="wrap split">
+<div><div class="eyebrow" style="color:var(--yellow)">For employers</div><h2 id="teamh">Training for your team.</h2></div>
+<div>
+<p>Show clients your installers are trained, without taking a whole crew off site for days.</p>
+<ul><li>Lower prices for groups of 3 or more</li><li>Each employee gets their own login, progress and certificate</li><li>Practical training days for your team with Aleron</li><li>Progress and certificate reports for your company</li></ul>
+<a class="button" href="#enquire" data-enquire="team">Get a team quote ↗</a>
+</div>
+</div></section>
+
+<section class="enquire bgph" id="enquire" aria-labelledby="enqh" style="background-image:url(__IMG_BASE__bgform.webp)"><div class="wrap split">
+<div><div class="eyebrow" style="color:var(--yellow)">Not sure which level?</div><h2 id="enqh">Ask the Academy.</h2><p class="intro">Tell us about your experience and we’ll recommend a route. We usually reply within one working day.</p></div>
+<div>
+<form class="form" id="enq-form" novalidate>
+<div class="row"><label>Name<input name="name" autocomplete="name" required></label><label>Email<input name="email" type="email" autocomplete="email" required></label></div>
+<div class="row"><label>Phone <span class="opt">(optional)</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="07123 456789" pattern="[0-9+()\s-]{7,20}"></label><label>Trade<select name="trade" id="f-trade"><option value="stopping">Fire Stopping</option><option value="doors">Fire Doors</option><option value="not_sure">Not sure yet</option></select></label></div>
+<div class="row"><label>Level you’re interested in<select name="level" id="f-level"><option value="not_sure">Help me choose</option><option value="theory">Theory</option><option value="practical">Theory + Practical</option><option value="nvq">NVQ Level 2</option></select></label><label>Your experience<select name="experience" required><option value="">Select an option</option><option value="new">I’m new to construction</option><option value="other_trade">I work in another construction trade</option><option value="installer">I already install fire stopping or fire doors</option><option value="team">I’m enquiring for a team</option></select></label></div>
+<label id="team-size-wrap" hidden>How many people?<select name="team_size"><option value="3-5">3–5</option><option value="6-10">6–10</option><option value="11+">11 or more</option></select></label>
+<label>Message <span class="opt">(optional)</span><textarea name="message" rows="3"></textarea></label>
+<label class="check"><input type="checkbox" name="consent" required><span>I agree to Aleron Academy contacting me about my enquiry by email, and by phone if I give my number. <a href="#" data-link="privacy">Privacy policy</a></span></label>
+<button class="button" type="submit">Send enquiry <span aria-hidden="true">↗</span></button>
+<p class="err" id="form-error" role="alert"></p>
+</form>
+<div class="form done" id="done" tabindex="-1"><h3>Thanks, we’ve got it.</h3><p>We’ll get back to you within one working day with the route we recommend.</p></div>
+</div>
+</div></section>
+
+<section class="section faq" id="faq" aria-labelledby="faqh"><div class="wrap split">
+<div><div class="eyebrow">FAQs</div><h2 id="faqh">Before you enrol.</h2><div class="side-ph"><img src="__IMG_BASE__faq.webp" alt="Aleron operative with a fire-rated board on site"></div></div>
+<div>
+<details><summary>Can I start with no fire protection experience?</summary><p>Yes. Start with the online Theory course to learn the fundamentals. Talk to us before buying Practical or NVQ so we can check what experience and site access you’ll need.</p></details>
+<details><summary>How is the online course delivered?</summary><p>Video and text lessons you can take on your phone or computer, at your own pace, followed by an online assessment.</p></details>
+<details><summary>Where and how does the Practical take place?</summary><p>A full day of hands-on training in a small group with the Aleron team. You can book it once you’ve passed the Theory assessment. We’ll confirm dates and location when you book.</p></details>
+<details><summary>Can I move on from Theory to Practical or NVQ later?</summary><p>Yes. Get in touch and we’ll upgrade you. Your total stays the same as buying the package in one go.</p></details>
+<details><summary>Who assesses the NVQ?</summary><p>The NVQ Level 2 is assessed by an independent assessor using evidence from your own site work. You need to meet the assessment requirements, including suitable site work. Ask us before buying if you’re not sure.</p></details>
+<details><summary>Does the Academy certificate come with a CSCS card?</summary><p>No. Aleron Academy issues its own certificate and diploma. CSCS issues cards separately and sets its own requirements. <a href="https://www.cscs.uk.com/card-type/skilled-worker/" target="_blank" rel="noopener noreferrer">See Blue Skilled Worker card requirements</a>.</p></details>
+<details><summary>Can my employer pay?</summary><p>Yes. For three or more people we offer group prices and can invoice your company. <a href="#enquire" data-enquire="team">Ask for a team quote</a>.</p></details>
+</div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+<span>© 2026 Aleron Fire Protection Limited · <a href="mailto:info@fire-proof.co.uk">info@fire-proof.co.uk</a></span>
+<nav aria-label="Legal"><a href="#" data-link="terms">Terms</a><a href="#" data-link="cancellation">Cancellation policy</a><a href="#" data-link="complaints">Complaints</a><a href="#" data-link="privacy">Privacy policy</a><a href="https://fire-proof.co.uk/" target="_blank" rel="noopener noreferrer">Aleron Fire Protection</a></nav>
+</div></footer>
+
+<a class="button sticky-cta" id="sticky-cta" href="#courses">Choose a course <span aria-hidden="true">↗</span></a>
+
+</div>
+<script>
+/* Meta Pixel helper: one place for every tracked action */
+const PX_PAGE = 'courses';
+window.__pxlog = [];
+function px(name, params, custom) {
+  const p = Object.assign({ page: PX_PAGE }, params || {});
+  window.__pxlog.push([name, p]);
+  if (/[?&]pxdebug=1/.test(location.search)) console.info('[pixel]', custom ? 'custom' : 'standard', name, p);
+  try { if (typeof fbq === 'function') fbq(custom ? 'trackCustom' : 'track', name, p); } catch (e) {}
+}
+</script>
+<script>
+/* ===== CONFIG ===== */
+const META_PIXEL_ID = '1476822027723349';      // Meta Pixel ID from Events Manager. Empty = pixel off.
+/* ===== Leads by email =====
+   Every form submission is emailed to LEAD_EMAIL.
+   Default service: FormSubmit (free). Before launch send ONE test submission and click
+   the activation link that FormSubmit emails to LEAD_EMAIL; until then submissions fail.
+   Optional: put a Web3Forms access key (web3forms.com, sent to LEAD_EMAIL) into WEB3FORMS_KEY
+   to use Web3Forms instead. */
+const LEAD_EMAIL = 'academy@aleron.co.uk';
+const WEB3FORMS_KEY = '';
+function leadFields(form, extra) {
+  const out = {};
+  form.querySelectorAll('input,select,textarea').forEach(el => {
+    if (!el.name || el.closest('[hidden]') || el.type === 'checkbox') return;
+    const label = (el.closest('label') ? el.closest('label').childNodes[0].textContent : el.name).replace(/\(optional\)/i, '').trim() || el.name;
+    const val = el.tagName === 'SELECT' ? (el.selectedOptions[0] ? el.selectedOptions[0].textContent : '') : el.value;
+    if (val) out[label] = val.trim();
+  });
+  out['Marketing consent'] = 'Yes';
+  return Object.assign(out, extra);
+}
+async function sendLead(fields, subject) {
+  let url, body;
+  if (WEB3FORMS_KEY) {
+    url = 'https://api.web3forms.com/submit';
+    body = Object.assign({ access_key: WEB3FORMS_KEY, subject, from_name: 'Aleron Academy website' }, fields);
+  } else {
+    url = 'https://formsubmit.co/ajax/' + LEAD_EMAIL;
+    body = Object.assign({ _subject: subject, _template: 'table', _captcha: 'false' }, fields);
+    if (fields.Email) body._replyto = fields.Email;
+  }
+  const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(body) });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok || !(j.success === true || j.success === 'true')) throw new Error(j.message || r.status);
+}
+
+const LINKS = { privacy: 'https://fire-proof.co.uk/privacy-policy', terms: '#', cancellation: '#', complaints: '#' };
+const WEBINAR_URL = 'https://claude.ai/artifact/SiL1b3CvUtGA6mt6aJnUHp'; // TEMP: preview link. Replace with the live webinar page URL
+const TEACHABLE = 'https://aleron-academy.teachable.com/l/bundle/';
+const COURSES = {
+  stopping: { name: 'Fire Stopping', ids: { theory: '809004/testa-s1s2', practical: '809371/1-fire-stopping-and-penetration-sealing-only-theory', nvq: '809372/1-fire-stopping-and-penetration-sealing-theorypractice-on-site' },
+    price: { theory: 149, practical: 499, nvq: 1399 }, upg: [['Theory → Practical', 350], ['Theory → Practical + NVQ', 1250], ['Practical → NVQ', 900]] },
+  doors:    { name: 'Fire Doors', ids: { theory: '809303/1-fire-doors-installer-only-theory', practical: '809369/1-fire-doors-only-theory', nvq: '809370/1-fire-doors-theorypractice-on-site' },
+    price: { theory: 149, practical: 799, nvq: 1699 }, upg: [['Theory → Practical', 650], ['Theory → Practical + NVQ', 1550], ['Practical → NVQ', 900]] }
+};
+const MODULES = {
+  fundamentals: { t: 'Fundamentals of passive fire protection', d: 'Shared by both programmes. How fire spreads and how compartmentation stops it, reading drawings and fire ratings, working safely on site and keeping records others can check.',
+    topics: ['Fire science & passive fire protection','Fire resistance ratings','Drawings, RAMS & planning','Site health & safety','The Golden Thread & traceability','Certification & escalation','Quality control','Final knowledge test'] },
+  stopping: { t: 'Fire Stopping', unit: 'NVQ unit H/617/6083', d: 'Products, penetration types and substrates, tested configurations and how to install, inspect and record fire stopping.',
+    topics: ['Fire stopping products','Penetration types','Substrates & construction types','Manufacturers & tested configurations','Installation: sealants, batts, boards, collars, compounds','Site safety, PPE & COSHH','Quality, inspection & rectification','Labels & digital records','Certification & uncertifiable solutions','Tools & installation guidance'] },
+  cavity: { t: 'Cavity Barriers', unit: 'NVQ unit D/617/6082', d: 'Where cavity barriers are required, the products used and how to install and check them in concealed spaces.',
+    topics: ['Fire spread in concealed spaces','Barrier types, materials & performance','Cavity types & construction','Manufacturers & technical requirements','Cavity barrier installation','Site safety, PPE & COSHH','Protecting work & waste','Quality, traceability & rectification','Tools & equipment'] },
+  doors: { t: 'Timber Fire Doors', unit: 'NVQ unit M/616/5829', d: 'Door ratings, components and installation, plus the checks and records used on site.',
+    topics: ['Fire doors & fire spread through openings','Ratings, testing & certification','Components & ironmongery','Door types & applications','Manufacturers & technical requirements','Fire door installation','Site safety, PPE & COSHH','Quality, traceability & rectification','Tools & installation guidance'] }
+};
+const ROUTE_MODULES = { stopping: ['fundamentals','stopping','cavity'], doors: ['fundamentals','stopping','doors'] };
+
+/* ===== helpers ===== */
+const gbp = n => '£' + n.toLocaleString('en-GB');
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+document.querySelectorAll('[data-link]').forEach(a => { const u = LINKS[a.dataset.link]; a.href = u || '#'; if (u && u !== '#') { a.target = '_blank'; a.rel = 'noopener'; } });
+
+/* ===== render trade ===== */
+let trade = 'stopping';
+function renderModules() {
+  document.getElementById('modules').innerHTML = ROUTE_MODULES[trade].map((k, i) => { const m = MODULES[k];
+    return `<details class="module"${i === 0 ? ' open' : ''}><summary><span class="num">0${i + 1}</span><span><h3>${esc(m.t)}</h3><p class="desc">${esc(m.d)}</p></span>${m.unit ? `<span class="unit">${m.unit}</span>` : ''}</summary><div class="body"><ul class="topics">${m.topics.map(t => `<li>${esc(t)}</li>`).join('')}</ul></div></details>`; }).join('');
+}
+function renderPrices() {
+  const c = COURSES[trade];
+  const card = (lvl, num, title, what, amt, vat, items, note, rec) => `<div class="price${rec ? ' rec' : ''}">${rec ? '<span class="badge">MOST POPULAR</span>' : ''}<span class="lvl">${num}</span><h3>${title}</h3><p class="what">${what}</p><div class="amt">${gbp(amt)}</div><p class="vat">${vat}</p><ul>${items.map(i => `<li>${i}</li>`).join('')}</ul>${note ? `<p class="note">${note}</p>` : ''}<div class="acts"><a class="button" href="${TEACHABLE + c.ids[lvl]}" target="_blank" rel="noopener" data-buy="${lvl}">Buy ${title} ↗</a><a class="button ghost" href="#enquire" data-enquire="${lvl}">Ask about ${title}</a></div></div>`;
+  document.getElementById('prices').innerHTML =
+    card('theory', '01 / ONLINE', 'Theory', 'Learn the work, materials and details you’ll see on site.', c.price.theory, 'incl. VAT', ['Self-paced video lessons', 'Online assessment', 'Aleron Academy Certificate of Completion'], '', false) +
+    card('practical', '02 / HANDS-ON', 'Theory + Practical', 'Put the theory into practice and get feedback on your work.', c.price.practical, 'package price, incl. VAT', ['Includes the Theory course', 'A full day of hands-on training with our team', 'Aleron Academy Diploma'], 'Book your practical day once you’ve passed the Theory assessment.', true) +
+    card('nvq', '03 / QUALIFICATION', 'NVQ Level 2', 'Work towards a recognised qualification using your own site work.', c.price.nvq, 'package price, incl. VAT', ['Includes Theory and Practical', 'Independent work-based NVQ assessment', 'Site work and eligibility requirements apply'], 'Check with us that you can provide the site evidence before you buy.', false);
+  document.querySelectorAll('[data-buy]').forEach(b => b.addEventListener('click', () => {
+    px('InitiateCheckout', { content_name: `${c.name} ${b.dataset.buy}`, content_ids: [String(c.ids[b.dataset.buy])], content_type: 'product', content_category: trade, num_items: 1, value: c.price[b.dataset.buy], currency: 'GBP' });
+  }));
+  bindEnquire();
+}
+function setTrade(t, announce) {
+  if (!COURSES[t]) return; trade = t;
+  document.querySelectorAll('[data-trade]').forEach(b => b.setAttribute('aria-pressed', b.dataset.trade === t));
+  renderModules(); renderPrices();
+  document.getElementById('f-trade').value = t;
+  if (announce) document.getElementById('switch-note').textContent = `${COURSES[t].name} selected. Prices and programme updated.`;
+  try { history.replaceState(null, '', '?route=' + t + location.hash); } catch (e) {}
+}
+document.querySelectorAll('[data-trade]').forEach(b => b.addEventListener('click', () => { if (b.dataset.trade !== trade) px('SelectRoute', { trade: b.dataset.trade }, true); setTrade(b.dataset.trade, true); }));
+
+/* ===== enquiry prefill ===== */
+const teamWrap = document.getElementById('team-size-wrap'), expSel = document.querySelector('select[name=experience]');
+function bindEnquire() {
+  document.querySelectorAll('[data-enquire]').forEach(a => { if (a._b) return; a._b = 1; a.addEventListener('click', () => {
+    const v = a.dataset.enquire;
+    if (['theory','practical','nvq'].includes(v)) document.getElementById('f-level').value = v;
+    if (v === 'team') { expSel.value = 'team'; teamWrap.hidden = false; }
+    document.getElementById('f-trade').value = trade;
+  }); });
+}
+document.querySelectorAll('[data-level]').forEach(a => a.addEventListener('click', () => { document.getElementById('f-level').value = a.dataset.level; }));
+expSel.addEventListener('change', () => teamWrap.hidden = expSel.value !== 'team');
+
+const q = new URLSearchParams(location.search);
+setTrade(q.get('route') === 'doors' || location.hash === '#doors' ? 'doors' : 'stopping', false);
+
+/* ===== form ===== */
+const form = document.getElementById('enq-form'), err = document.getElementById('form-error'), done = document.getElementById('done');
+form.addEventListener('submit', async e => {
+  e.preventDefault(); err.textContent = '';
+  if (!form.checkValidity()) { err.textContent = 'Please fill in your name, a valid email (and phone, if given), your experience and tick the consent box.'; return; }
+  const data = Object.fromEntries(new FormData(form)); data.consent = true; if (teamWrap.hidden) delete data.team_size;
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(k => { if (q.get(k)) data[k] = q.get(k); });
+  data.funnel = 'B-course-page'; data.page = location.href;
+  try {
+    const utm = {}; ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k => { if (data[k]) utm[k] = data[k]; });
+    await sendLead(leadFields(form, Object.assign({ 'Page': location.href.split('#')[0] }, utm)), 'Course enquiry: ' + (data.name || '') + ' - ' + ({ stopping: 'Fire Stopping', doors: 'Fire Doors' }[data.trade] || data.trade || '') + ', ' + ({ not_sure: 'not sure yet', theory: 'Theory', practical: 'Theory + Practical', nvq: 'NVQ Level 2' }[data.level] || data.level || '') + (data.team_size ? ' (team ' + data.team_size + ')' : ''));
+    {
+      px('Lead', { content_name: `${data.trade} ${data.level}`, content_category: data.trade, level: data.level || '', team: data.team_size ? 'yes' : 'no' });
+    }
+    form.hidden = true; done.classList.add('show'); done.focus();
+  } catch (x) { err.textContent = 'Something went wrong and your enquiry was not sent. Please try again or email academy@aleron.co.uk.'; }
+});
+
+/* ===== Tilda: Meta Pixel (1476822027723349) is already loaded by the site, so this block
+   does not load it again and shows no cookie banner. Events go to window.fbq via px(). ===== */
+(() => {
+  const pr = document.getElementById('courses');
+  if ('IntersectionObserver' in window) { const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { px('ViewContent', { content_name: 'course_prices_' + trade, content_category: trade }); io.disconnect(); } }, { threshold: .25 }); io.observe(pr); }
+})();
+
+/* ===== mobile sticky button ===== */
+(() => {
+  const cta = document.getElementById('sticky-cta'); if (!('IntersectionObserver' in window)) return;
+  const seen = new Set();
+  const io = new IntersectionObserver(es => { es.forEach(e => e.isIntersecting ? seen.add(e.target) : seen.delete(e.target)); cta.classList.toggle('hide', seen.size > 0); });
+  [document.querySelector('.hero'), document.getElementById('courses'), document.getElementById('enquire')].forEach(el => el && io.observe(el));
+})();
+
+/* ===== Meta Pixel: event plan (see Pixel_events_plan.md) =====
+   px(name, params, custom) logs every event to window.__pxlog and sends it to Meta
+   only if the visitor accepted cookies (fbq exists only after consent).
+   Add ?pxdebug=1 to the URL to see events in the browser console. */
+(() => {
+  const loc = el => {
+    if (el.closest('header')) return 'header';
+    if (el.classList.contains('sticky-cta')) return 'sticky';
+    const s = el.closest('section,footer,.stats,.team-banner,.hero-card,.done');
+    if (!s) return 'page';
+    if (s.id) return s.id === 'top' ? 'hero' : s.id;
+    return (s.className || s.tagName).toString().split(' ').find(c => !['section', 'white', 'bgph'].includes(c)) || 'page';
+  };
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a,button'); if (!a) return;
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('mailto:')) return px('Contact', { method: 'email', location: loc(a) });
+    if (href.startsWith('tel:')) return px('Contact', { method: 'phone', location: loc(a) });
+    if (/^#(register|courses|enquire|programme|routes|faq|teams|reviews)$/.test(href) || a.hasAttribute('data-enquire'))
+      px('CTAClick', { target: (href.slice(1) || 'enquire'), location: loc(a), label: a.innerText.replace(/\s+/g, ' ').trim().slice(0, 40) }, true);
+  }, true);
+  document.addEventListener('click', e => {
+    const sm = e.target.closest('summary'); if (!sm) return;
+    const d = sm.parentElement;
+    setTimeout(() => {
+      if (!d.open || d._px) return;
+      d._px = 1;
+      const q = (sm.querySelector('h3') || sm).innerText.replace(/\s+/g, ' ').trim().slice(0, 80);
+      if (d.classList.contains('module')) px('ModuleOpen', { module: q }, true); else px('FAQOpen', { question: q }, true);
+    }, 0);
+  }, true);
+  const seen = new Set();
+  addEventListener('scroll', () => {
+    const h = document.documentElement, pct = (h.scrollTop + innerHeight) / h.scrollHeight * 100;
+    [50, 90].forEach(m => { if (pct >= m && !seen.has(m)) { seen.add(m); px('ScrollDepth', { percent: m }, true); } });
+  }, { passive: true });
+  let t = 0; const iv = setInterval(() => { if (document.visibilityState === 'visible' && (t += 5) >= 30) { px('EngagedVisit', { seconds: 30 }, true); clearInterval(iv); } }, 5000);
+  document.querySelectorAll('form.form').forEach(f => {
+    let started = 0;
+    f.addEventListener('focusin', () => { if (!started) { started = 1; px('FormStart', { form: f.id }, true); } });
+    f.addEventListener('submit', () => {
+      if (!f.checkValidity()) px('FormError', { form: f.id, fields: [...f.elements].filter(x => x.name && !x.checkValidity()).map(x => x.name).join(',') }, true);
+    }, true);
+  });
+})();
+</script>
+
