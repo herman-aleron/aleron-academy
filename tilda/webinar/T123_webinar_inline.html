@@ -432,5 +432,38 @@ form.addEventListener('submit', async e => {
   fit(); setTimeout(fit, 400); setTimeout(fit, 1500);
   addEventListener('load', fit); addEventListener('resize', fit);
 })();
+
+/* ===== Tilda: in-page links scroll below the site's fixed menu =====
+   Tilda's own anchor scrolling ignores the fixed menu, so the top of the form was hidden.
+   Links inside this block are handled here instead, without changing the URL. */
+(() => {
+  const lp = document.getElementById('aleron-lp'); if (!lp) return;
+  function fixedTop() {
+    let bottom = 0;
+    document.querySelectorAll('body *').forEach(el => {
+      if (lp.contains(el)) return;
+      const cs = getComputedStyle(el);
+      if (cs.position !== 'fixed' && cs.position !== 'sticky') return;
+      if (cs.display === 'none' || cs.visibility === 'hidden' || +cs.opacity === 0) return;
+      const r = el.getBoundingClientRect();
+      if (r.top > 5 || r.height === 0 || r.bottom > 260 || r.width < innerWidth * 0.5) return;
+      bottom = Math.max(bottom, r.bottom);
+    });
+    return bottom;
+  }
+  function go(id) {
+    const t = document.getElementById(id); if (!t || !lp.contains(t)) return false;
+    const y = t.getBoundingClientRect().top + scrollY - Math.max(fixedTop(), 70) - 12;
+    scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    // the menu may appear while scrolling: correct once it has settled
+    setTimeout(() => { const d = t.getBoundingClientRect().top - (fixedTop() + 12); if (Math.abs(d) > 8) scrollBy({ top: d, behavior: 'smooth' }); }, 700);
+    return true;
+  }
+  lp.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]'); if (!a) return;
+    const id = a.getAttribute('href').slice(1); if (!id) return;
+    if (go(id)) { e.preventDefault(); e.stopPropagation(); }
+  });
+})();
 </script>
 
