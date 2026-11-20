@@ -118,6 +118,7 @@ FIT = r'''
       else setTimeout(() => { const fix = target(); if (Math.abs(fix - scrollY) > 8) scrollTo(0, fix); }, 250);
     };
     requestAnimationFrame(step);
+    setTimeout(() => { const fix = target(); if (Math.abs(fix - scrollY) > 8) scrollTo(0, fix); }, dur + 400);
     return true;
   }
   lp.addEventListener('click', e => {
