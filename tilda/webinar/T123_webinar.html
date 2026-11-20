@@ -243,6 +243,7 @@ const META_PIXEL_ID = '1476822027723349';         // Meta Pixel ID from Events M
    Optional: put a Web3Forms access key (web3forms.com, sent to LEAD_EMAIL) into WEB3FORMS_KEY
    to use Web3Forms instead. */
 const LEAD_EMAIL = 'academy@aleron.co.uk';
+const FORMSUBMIT_ID = 'dfc84805cae83fa71097dbf59fc8ff13';   // FormSubmit alias of LEAD_EMAIL (hides the address from spam bots)
 const WEB3FORMS_KEY = '';
 function leadFields(form, extra) {
   const out = {};
@@ -261,7 +262,7 @@ async function sendLead(fields, subject) {
     url = 'https://api.web3forms.com/submit';
     body = Object.assign({ access_key: WEB3FORMS_KEY, subject, from_name: 'Aleron Academy website' }, fields);
   } else {
-    url = 'https://formsubmit.co/ajax/' + LEAD_EMAIL;
+    url = 'https://formsubmit.co/ajax/' + (FORMSUBMIT_ID || LEAD_EMAIL);
     body = Object.assign({ _subject: subject, _template: 'table', _captcha: 'false' }, fields);
     if (fields.Email) body._replyto = fields.Email;
   }
