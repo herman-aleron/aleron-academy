@@ -1,0 +1,33 @@
+<!-- Aleron Academy - webinar landing, live from GitHub (herman-aleron/aleron-academy).
+     Put this code into ONE T123 block on fire-proof.co.uk/webinar and publish once.
+     Later changes pushed to GitHub appear on the site within ~10 minutes, no Tilda republish. -->
+<div id="aleron-live" style="min-height:70vh"></div>
+<script>
+(function () {
+  var SRC = 'https://herman-aleron.github.io/aleron-academy/live/webinar.html';
+  var box = document.getElementById('aleron-live');
+  function fail() {
+    box.style.minHeight = '0';
+    box.innerHTML = '<div style="padding:60px 20px;text-align:center;font:16px/1.5 Arial,sans-serif">' +
+      'This page did not load. Please refresh, or email <a href="mailto:academy@aleron.co.uk">academy@aleron.co.uk</a>.</div>';
+  }
+  fetch(SRC + '?v=' + Math.floor(Date.now() / 300000), { cache: 'no-cache' })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+    .then(function (html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      var scripts = Array.prototype.slice.call(tmp.querySelectorAll('script'));
+      scripts.forEach(function (s) { s.parentNode.removeChild(s); });
+      var parent = box.parentNode;
+      while (tmp.firstChild) parent.insertBefore(tmp.firstChild, box);
+      parent.removeChild(box);
+      scripts.forEach(function (old) {
+        var s = document.createElement('script');
+        s.text = old.textContent;
+        document.body.appendChild(s);
+      });
+      if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
+    })
+    .catch(fail);
+})();
+</script>

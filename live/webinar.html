@@ -1,0 +1,409 @@
+<!-- Aleron Academy - webinar landing for Tilda block T123 (Embed HTML code).
+     Paste the whole file into ONE T123 block on an empty page, then publish.
+     Pixel: uses the Meta Pixel the site already loads; no second pixel, no cookie banner. -->
+<style>
+#aleron-lp h1,#aleron-lp h2,#aleron-lp h3,#aleron-lp h4,#aleron-lp p,#aleron-lp li,#aleron-lp a,#aleron-lp span,#aleron-lp b,#aleron-lp strong,#aleron-lp small,#aleron-lp label,#aleron-lp blockquote,#aleron-lp figcaption,#aleron-lp summary,#aleron-lp dt,#aleron-lp dd{font-family:inherit;color:inherit}
+
+#aleron-lp{--ink:#151515;--paper:#f9f8f6;--yellow:#ffcb08;--muted:#5e5c55;--line:#d9d6cf}
+#aleron-lp,#aleron-lp *{box-sizing:border-box}#aleron-lp{scroll-behavior:smooth}#aleron-lp{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 Arial,sans-serif}#aleron-lp a{color:inherit}#aleron-lp img{max-width:100%;display:block}#aleron-lp h1,#aleron-lp h2,#aleron-lp h3,#aleron-lp p{margin:0}#aleron-lp h1,#aleron-lp h2{letter-spacing:-.055em;line-height:1.02}#aleron-lp h1{font-size:clamp(3.1rem,6.4vw,6.8rem);max-width:14ch}#aleron-lp h2{font-size:clamp(2.3rem,4.8vw,4.2rem);max-width:15ch}#aleron-lp h3{font-size:1.3rem;line-height:1.15;letter-spacing:-.025em}#aleron-lp p{max-width:62ch}
+#aleron-lp .wrap{width:min(1190px,calc(100% - 64px));margin-inline:auto}#aleron-lp .eyebrow{font-size:.78rem;letter-spacing:.15em;font-weight:800;text-transform:uppercase}
+#aleron-lp .button .free{font-weight:900;letter-spacing:.04em}#aleron-lp .button{display:inline-flex;justify-content:center;align-items:center;gap:18px;padding:.83rem 1.25rem;min-height:48px;background:var(--yellow);color:var(--ink);border:1px solid var(--yellow);border-radius:3px;font:700 .97rem/1.2 Arial,sans-serif;text-decoration:none;cursor:pointer}#aleron-lp .button:hover{background:#ffe062;border-color:#ffe062}#aleron-lp .button.ghost{background:transparent;color:inherit;border-color:currentColor}
+#aleron-lp .button:focus-visible,#aleron-lp a:focus-visible,#aleron-lp input:focus-visible,#aleron-lp select:focus-visible,#aleron-lp summary:focus-visible{outline:3px solid #5482cf;outline-offset:4px}
+#aleron-lp .bar{background:var(--ink);color:#fff;border-bottom:1px solid #454545}#aleron-lp .bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:22px;min-height:84px}#aleron-lp .brand img{width:173px}
+#aleron-lp .hero{background:var(--ink);color:#fff}#aleron-lp .hero .wrap{display:block;padding-block:64px 56px}#aleron-lp .hero .eyebrow{color:var(--yellow);margin-bottom:19px}#aleron-lp .hero .lead{font-size:1.2rem;color:#e0dfd9;margin-block:20px 24px;max-width:42ch}#aleron-lp .hero .pay-hook{margin:16px 0 0;color:var(--yellow);font-weight:700;max-width:44ch}#aleron-lp .hero .pay-hook a{font-weight:400;color:#bdbab1;font-size:.82rem}#aleron-lp .hero .pay-hook .src{font-weight:400;color:#bdbab1;font-size:.82rem}
+#aleron-lp .hero .wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.75fr);gap:48px;align-items:center}#aleron-lp .hero-card{background:#fff;color:var(--ink);padding:26px 26px 22px;border-top:6px solid var(--yellow)}#aleron-lp .hero-card .eyebrow{color:var(--ink);margin-bottom:12px}#aleron-lp .hc-list{list-style:none;margin:0 0 20px;padding:0}#aleron-lp .hc-list li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #e3e1da;font-size:.95rem}#aleron-lp .hc-list span{color:#5d5b54}#aleron-lp .hc-list strong{text-align:right}#aleron-lp .hero-card .button{width:100%;justify-content:center}#aleron-lp .hc-note{margin:10px 0 0;font-size:.85rem;color:#5d5b54;text-align:center}#aleron-lp .pay-cta{margin-top:22px}
+#aleron-lp .al-stats{display:grid;grid-template-columns:repeat(3,1fr);margin:22px 0 28px;background:var(--yellow);color:var(--ink)}#aleron-lp .al-stat{padding:18px 22px}#aleron-lp .al-stat+.al-stat{border-left:1px solid #806500}#aleron-lp .al-stat b{display:block;font-size:2rem;letter-spacing:-.03em;line-height:1.1}#aleron-lp .al-stat span{display:block;font-size:.92rem;line-height:1.3;margin-top:4px}@media(max-width:760px){#aleron-lp .al-stat{padding:12px 10px}#aleron-lp .al-stat b{font-size:1.25rem}#aleron-lp .al-stat span{font-size:.75rem}}
+#aleron-lp .hero.bgph::before{background:linear-gradient(90deg,rgba(21,21,21,.93) 0%,rgba(21,21,21,.86) 55%,rgba(21,21,21,.78) 100%)}#aleron-lp .hero .rec-note{color:#fff}#aleron-lp .hero .hero-card .hc-note{color:#5d5b54}
+#aleron-lp .hero-photo{margin:0;position:relative;width:100%;aspect-ratio:21/8;overflow:hidden}#aleron-lp .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 40%}#aleron-lp figcaption.tag{position:absolute;bottom:0;left:0;background:var(--yellow);color:var(--ink);padding:.45rem .8rem;font-size:.76rem;font-weight:800}
+#aleron-lp .facts{background:var(--yellow)}#aleron-lp .facts .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;padding-block:23px;gap:12px}#aleron-lp .fact+.fact{border-left:1px solid #806500;padding-left:22px}#aleron-lp .fact b{font-size:1.16rem;display:block}
+#aleron-lp .section{padding-block:68px;border-bottom:1px solid var(--line)}#aleron-lp .split{display:grid;grid-template-columns:minmax(0,.83fr) minmax(0,1.17fr);gap:55px}#aleron-lp .intro{margin-top:15px;color:var(--muted)}#aleron-lp .white{background:#fff}
+#aleron-lp .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}#aleron-lp .card{background:#fff;border-top:4px solid var(--yellow);padding:22px}#aleron-lp .card .q{font-style:italic;color:var(--muted);margin-top:10px}#aleron-lp .card .n{font-weight:800;font-size:.8rem;letter-spacing:.12em}
+#aleron-lp .why{list-style:none;margin:0;padding:0}#aleron-lp .why li{padding:17px 0;border-bottom:1px solid var(--line)}#aleron-lp .why li:first-child{border-top:1px solid var(--line)}#aleron-lp .why p{color:var(--muted);margin-top:5px}
+#aleron-lp .rate{display:block;font-size:clamp(3rem,6vw,6.4rem);font-weight:800;line-height:1;letter-spacing:-.06em;margin-bottom:10px}#aleron-lp .rate2{font-size:clamp(2rem,3.6vw,3.2rem);font-weight:800;letter-spacing:-.05em;display:block;margin:28px 0 6px}#aleron-lp .source{font-size:.86rem;margin-top:10px;color:var(--muted)}
+#aleron-lp .agenda{list-style:none;margin:0;padding:0;counter-reset:item}#aleron-lp .agenda li{display:grid;grid-template-columns:43px 1fr;gap:16px;padding:17px 0;border-bottom:1px solid var(--line);counter-increment:item}#aleron-lp .agenda li:first-child{border-top:1px solid var(--line)}#aleron-lp .agenda li::before{content:"0" counter(item);font-weight:800}#aleron-lp .agenda p{color:var(--muted);margin-top:5px}
+#aleron-lp .route{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:30px;border:1px solid var(--line);background:#fff}#aleron-lp .step{padding:22px;position:relative}#aleron-lp .step+.step{border-left:1px solid var(--line)}#aleron-lp .step .lvl{display:inline-block;background:var(--ink);color:var(--yellow);font-weight:800;font-size:.75rem;letter-spacing:.12em;padding:.25rem .55rem;margin-bottom:12px}#aleron-lp .step p{color:var(--muted);margin-top:6px}
+#aleron-lp .cert{margin:0;background:#fff;border:1px solid var(--line);padding:14px}#aleron-lp .cert img{width:100%}#aleron-lp .cert figcaption{font-size:.82rem;color:var(--muted);margin-top:8px}
+#aleron-lp .bonus{background:var(--ink);color:#fff}#aleron-lp .bonus .box{border:2px solid var(--yellow);padding:30px;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center}#aleron-lp .bonus .big{font-size:3rem;font-weight:800;color:var(--yellow);line-height:1}#aleron-lp .bonus p{color:#d4d1c8;margin-top:8px}
+#aleron-lp .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}#aleron-lp .gallery figure{margin:0;position:relative;aspect-ratio:3/2;background:#e9e6df;overflow:hidden}#aleron-lp .gallery img{width:100%;height:100%;object-fit:cover}#aleron-lp .slot{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:16px;border:2px dashed #b9a24a;color:#6d6a60;font-size:.86rem;background:repeating-linear-gradient(135deg,#eeebe4 0 12px,#e8e4dc 12px 24px)}#aleron-lp .slot b{display:block;color:var(--ink);font-size:.95rem;margin-bottom:4px}
+#aleron-lp .host img{width:100%;aspect-ratio:16/9;object-fit:cover}#aleron-lp .host .split{align-items:center}#aleron-lp .host .eyebrow{margin-bottom:12px}
+#aleron-lp .register{padding-block:74px;background:var(--ink);color:#fff;scroll-margin-top:16px}#aleron-lp .register .intro{color:#d4d1c8}#aleron-lp .rec-note{margin:12px 0 0;font-size:.95rem;font-weight:700}#aleron-lp .register .reg-rec{margin-top:12px}#aleron-lp .register .reg-rec strong{color:var(--yellow)}#aleron-lp .register .reg-contact{margin-top:14px}#aleron-lp .register .reg-contact a{color:var(--yellow);font-weight:700}#aleron-lp .form{background:#fff;color:var(--ink);padding:28px}#aleron-lp .form textarea{min-height:96px;resize:vertical}#aleron-lp .form .row{display:grid;gap:14px;grid-template-columns:1fr 1fr}#aleron-lp .form label{font-weight:700;font-size:.92rem;display:block;margin-bottom:15px}#aleron-lp .form input:not([type=checkbox]),#aleron-lp .form select,#aleron-lp .form textarea{display:block;width:100%;border:1px solid #a6a49b;border-radius:3px;min-height:46px;padding:9px 12px;font:inherit;margin-top:5px;background:#fff;color:var(--ink)}#aleron-lp .form .check{display:grid;grid-template-columns:22px 1fr;gap:10px;font-weight:400;font-size:.88rem;color:#3d3b36}#aleron-lp .form .check input{width:18px;height:18px;margin:2px 0 0}#aleron-lp .form .form-bonus{margin:0 0 14px;padding:10px 12px;border-left:4px solid var(--yellow);background:#fffbe6;font-size:.9rem;color:var(--ink)!important}#aleron-lp .form .btn-meta{margin-top:8px;font-weight:700}#aleron-lp .form .fine{font-size:.82rem;color:#5d5b54;margin:12px 0 0}
+#aleron-lp .done{display:none}#aleron-lp .register .done p,#aleron-lp .register .done li{color:#3d3b36}#aleron-lp .done h4{font-size:1.05rem;margin:22px 0 0}#aleron-lp .done .next{margin:14px 0 0;padding-left:1.2rem;display:grid;gap:6px}#aleron-lp .done .share{margin-top:24px;padding-top:4px;border-top:1px solid #e3e1da}#aleron-lp .done .share p{margin:6px 0 0}#aleron-lp .done .share .acts{margin-top:12px}#aleron-lp .done.show{display:block}#aleron-lp .done h3{font-size:1.7rem;margin-bottom:8px}#aleron-lp .done .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}#aleron-lp .err{color:#a3261b;font-weight:700;margin-top:12px}#aleron-lp .err:empty{display:none}
+#aleron-lp .faq details{padding:13px 0;border-top:1px solid var(--line)}#aleron-lp .faq details:last-child{border-bottom:1px solid var(--line)}#aleron-lp .faq summary{cursor:pointer;font-weight:700}#aleron-lp .faq details p{margin:8px 0 0;color:var(--muted)}
+#aleron-lp footer{padding:24px 0;font-size:.86rem}#aleron-lp footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:15px}
+#aleron-lp .card .ph{margin:-22px -22px 16px;aspect-ratio:3/2;overflow:hidden}#aleron-lp .card .ph img{width:100%;height:100%;object-fit:cover}
+#aleron-lp .side-ph{margin-top:28px;aspect-ratio:4/3;overflow:hidden}#aleron-lp .side-ph img{width:100%;height:100%;object-fit:cover}
+#aleron-lp .bgph{position:relative;color:#fff;background-color:var(--ink);background-size:cover;background-position:center}#aleron-lp .bgph::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,21,21,.92) 0%,rgba(21,21,21,.78) 55%,rgba(21,21,21,.6) 100%)}#aleron-lp .bgph>.wrap{position:relative}
+#aleron-lp .bgph .intro,#aleron-lp .bgph .source,#aleron-lp .bgph p{color:#dcd9d0}#aleron-lp .bgph .rate{color:var(--yellow)}#aleron-lp .bgph .rate2{color:#fff}
+@media(max-width:760px){#aleron-lp .bgph::before{background:rgba(21,21,21,.84)}}
+#aleron-lp .step .ph{margin:-22px -22px 16px;aspect-ratio:3/2;overflow:hidden}#aleron-lp .step .ph img{width:100%;height:100%;object-fit:cover}
+@media(max-width:860px){#aleron-lp .cards,#aleron-lp .route,#aleron-lp .gallery{grid-template-columns:1fr}#aleron-lp .step+.step{border-left:0;border-top:1px solid var(--line)}#aleron-lp .bonus .box{grid-template-columns:1fr}}
+@media(max-width:760px){#aleron-lp .wrap{width:calc(100% - 36px)}#aleron-lp .hero .wrap,#aleron-lp .split{grid-template-columns:1fr;gap:24px}#aleron-lp .hero .wrap{padding-block:38px 34px}#aleron-lp .hero-photo{aspect-ratio:16/10}#aleron-lp .hero .lead{font-size:1.05rem}#aleron-lp .bar .wrap{min-height:68px}#aleron-lp .brand img{width:138px}#aleron-lp .bar .button{padding-inline:.7rem;font-size:.86rem}#aleron-lp .section,#aleron-lp .register{padding-block:43px}#aleron-lp .facts .wrap{padding-block:15px;grid-template-columns:1.25fr .8fr .8fr;gap:6px}#aleron-lp .fact+.fact{padding-left:9px}#aleron-lp .fact b{font-size:.88rem}#aleron-lp .fact span{font-size:.75rem}#aleron-lp .form{padding:20px}#aleron-lp .form .row{grid-template-columns:1fr;gap:0}}
+#aleron-lp .cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;max-width:560px;margin-inline:auto;background:#fff;color:var(--ink);border:1px solid var(--line);border-top:4px solid var(--yellow);box-shadow:0 10px 30px rgba(0,0,0,.25);padding:18px 20px}#aleron-lp .cookie[hidden]{display:none}#aleron-lp .cookie p{font-size:.9rem;color:#3d3b36}#aleron-lp .cookie .acts{display:flex;gap:10px;margin-top:12px}#aleron-lp .cookie .button{min-height:42px;padding:.6rem 1rem}
+#aleron-lp .cookie:not([hidden]) ~ .sticky-cta{display:none}
+#aleron-lp .cookie-link{background:none;border:0;padding:0;font:inherit;text-decoration:underline;cursor:pointer;color:inherit}
+#aleron-lp .bonus-box{margin-top:22px;border:3px solid var(--yellow);background:#fffbe6;padding:20px 22px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}#aleron-lp .bonus-box .big{font-size:2.4rem;font-weight:800;line-height:.9;color:var(--ink);background:var(--yellow);width:48px;height:48px;display:grid;place-items:center}#aleron-lp .bonus-box h3{font-size:1.35rem;margin-top:6px}#aleron-lp .bonus-box p{color:#3d3b36;margin-top:6px}
+#aleron-lp .short,#aleron-lp .sticky-cta{display:none}
+@media(max-width:760px){
+#aleron-lp .bar .long{display:none}#aleron-lp .bar .short{display:inline}
+#aleron-lp h1{font-size:2.7rem}#aleron-lp h2{font-size:2rem}
+#aleron-lp .hero .wrap{display:block;gap:20px}#aleron-lp .hero .button{width:100%}#aleron-lp .hero-card{display:none}#aleron-lp .pay-cta{width:100%}#aleron-lp .hero-photo{aspect-ratio:16/10}
+#aleron-lp .facts .wrap{grid-template-columns:1fr 1fr;row-gap:10px}#aleron-lp .facts .fact:first-child{grid-column:1/-1;border:0;padding:0}#aleron-lp .facts .fact:first-child b,#aleron-lp .facts .fact:first-child span{display:inline;font-size:1rem}#aleron-lp .facts .fact:first-child span::before{content:" "}#aleron-lp .facts .fact:nth-child(2){border-left:0;padding-left:0}#aleron-lp .fact b{font-size:1rem}#aleron-lp .fact span{font-size:.8rem}
+#aleron-lp .cards{gap:12px;margin-top:22px}#aleron-lp .card{display:grid;grid-template-columns:96px 1fr;column-gap:14px;padding:14px;border-top-width:3px}#aleron-lp .card .ph{grid-row:1/span 3;margin:0;aspect-ratio:1;width:96px}#aleron-lp .card h3{font-size:1.05rem}#aleron-lp .card .q{margin-top:4px;font-size:.9rem}
+#aleron-lp .side-ph{display:none}
+#aleron-lp .why li{padding:13px 0}#aleron-lp .agenda li{padding:13px 0}
+#aleron-lp .rate{font-size:2.8rem}#aleron-lp .rate2{font-size:1.9rem;margin-top:20px}
+#aleron-lp .bonus .box{padding:20px;gap:8px}#aleron-lp .bonus .big{font-size:2rem}
+#aleron-lp .gallery{grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}#aleron-lp .gallery figure{aspect-ratio:1}
+#aleron-lp .form .button{width:100%}
+#aleron-lp .sticky-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:50;box-shadow:0 6px 20px rgba(0,0,0,.35);transition:transform .25s,opacity .25s}
+#aleron-lp .sticky-cta.hide{transform:translateY(140%);opacity:0;pointer-events:none}
+#aleron-lp footer{padding-bottom:84px}
+}
+@media(prefers-reduced-motion:reduce){#aleron-lp{scroll-behavior:auto}#aleron-lp .sticky-cta{transition:none}}
+
+#aleron-lp{display:block;position:relative;text-align:left;-webkit-font-smoothing:antialiased}#aleron-lp [id]{scroll-margin-top:90px}#aleron-lp input,#aleron-lp select,#aleron-lp textarea,#aleron-lp button{font-family:Arial,sans-serif}
+
+</style>
+<div id="aleron-lp">
+
+<main id="top">
+
+<section class="hero bgph" aria-labelledby="headline" style="background-image:url(https://herman-aleron.github.io/aleron-academy/tilda/webinar/images/hero.webp);background-position:center 40%"><div class="wrap">
+<div>
+<div class="eyebrow">Free live webinar · Aleron Academy</div>
+<h1 id="headline">How to Get Into Fire Stopping</h1>
+<p class="lead">A well-paid, steady trade that is lighter on the body than most site work. In 30 minutes, Andrew from Aleron shows you what the job involves, what employers pay and how to get certified.</p>
+<a class="button" href="#register"><span>Book my <b class="free">FREE</b> place</span> <span aria-hidden="true">↗</span></a>
+<p class="rec-note">Can’t make it live?<br>Register anyway: we’ll send the recording to everyone who signs up.</p>
+<p class="pay-hook">This is what you can earn: £230–£250/day, advertised for experienced fire stoppers.</p>
+</div>
+<aside class="hero-card" aria-label="Webinar details">
+<div class="eyebrow">Free live webinar</div>
+<ul class="hc-list">
+<li><span>Date</span><strong>Wednesday 2 December 2026</strong></li>
+<li><span>Time</span><strong>6.00 pm UK time</strong></li>
+<li><span>Length</span><strong>30 minutes, online</strong></li>
+<li><span>Price</span><strong>Free</strong></li>
+</ul>
+<a class="button" href="#register"><span>Book my <b class="free">FREE</b> place</span> <span aria-hidden="true">↗</span></a>
+<p class="hc-note">Recording sent to everyone who registers.</p>
+</aside>
+</div>
+</section>
+
+<div class="facts"><div class="wrap">
+<div class="fact"><b data-date-long>Wednesday 2 December</b><span data-year>2026</span></div>
+<div class="fact"><b data-time>6.00 pm</b><span>UK time</span></div>
+<div class="fact"><b><span data-duration>30</span> minutes</b><span>Live online · Zoom</span></div>
+</div></div>
+
+<section class="section" aria-labelledby="who"><div class="wrap">
+<div class="eyebrow">Who it’s for</div>
+<h2 id="who">Three ways into the trade</h2>
+<div class="cards">
+<div class="card"><div class="ph"><img src="https://herman-aleron.github.io/aleron-academy/tilda/webinar/images/w1.webp" alt="Aleron operative preparing materials on site"></div><div class="n">01</div><h3>New to construction</h3><p class="q">“Which specialism should I pick, and what does a normal shift look like?”</p></div>
+<div class="card"><div class="ph"><img src="https://herman-aleron.github.io/aleron-academy/tilda/webinar/images/w2.webp" alt="Tradesperson with power tools in a service cupboard"></div><div class="n">02</div><h3>Coming from another trade</h3><p class="q">“I want to earn more. Which of my skills carry over?”</p></div>
+<div class="card"><div class="ph"><img src="https://herman-aleron.github.io/aleron-academy/tilda/webinar/images/w3.webp" alt="Aleron fire stopper working at an electrical riser"></div><div class="n">03</div><h3>Already fitting, no certificate</h3><p class="q">“How do I prove what I can do and move up?”</p></div>
+</div>
+</div></section>
+
+<section class="section white" aria-labelledby="why"><div class="wrap split">
+<div><h2 id="why">Why fire stopping</h2><p class="intro">What we hear from people who made the move, and what we see as a contractor hiring for it.</p><div class="side-ph"><img src="https://herman-aleron.github.io/aleron-academy/tilda/webinar/images/why.webp" alt="Aleron operative sealing at the head of a blockwork wall"></div></div>
+<ul class="why">
+<li><h3>Strong pay rates</h3><p>Experienced fire stoppers are advertised at day rates well above many general site roles.</p></li>
+<li><h3>Lighter on your body</h3><p>Precise, methodical work with sealants, boards and collars rather than heavy lifting all day.</p></li>
+<li><h3>Demand backed by building safety rules</h3><p>The law requires fire stopping to be installed by competent people, and clients increasingly ask for proof of training.</p></li>
+<li><h3>Taught by a working contractor</h3><p>Aleron Fire Protection installs passive fire protection on live projects. You learn the way our own teams work.</p></li>
+</ul>
+</div></section>
+
+<section class="section bgph" id="pay" aria-labelledby="payh" style="background-image:url(https://herman-aleron.github.io/aleron-academy/tilda/webinar/images/bgpay.webp)"><div class="wrap split">
+<h2 id="payh">What do fire stoppers get paid?</h2>
+<div>
+<strong class="rate">£230–£250/day</strong>
+<p>Advertised rate for experienced fire stoppers on a 10-week project in Preston, paid through CIS.</p>
+<p class="source">Source: Acorn Recruitment listing, 3 November 2026</p>
+<strong class="rate2">£60k–£70k/year</strong>
+<p>What experienced fire stoppers earn in a full year of contract work, based on Aleron’s own experience on site. Figures are before tax and expenses.</p>
+<p class="intro">In the webinar we compare contract and salaried work and show which certificates employers ask for at each level.</p>
+<a class="button pay-cta" href="#register"><span>Book my <b class="free">FREE</b> place</span> <span aria-hidden="true">↗</span></a>
+</div>
+</div></section>
+
+<section class="section white" aria-labelledby="cover"><div class="wrap split">
+<div><h2 id="cover">What we’ll cover in 30 minutes</h2><p class="intro">Short, practical and live. Bring your questions.</p><div class="side-ph"><img src="https://herman-aleron.github.io/aleron-academy/tilda/webinar/images/ag.webp" alt="Fire stopper working inside a cable riser"></div></div>
+<div><ol class="agenda">
+<li><div><h3>Who fire stoppers are and what they earn</h3><p>Real advertised rates and what experience they ask for.</p></div></li>
+<li><div><h3>The job on a real Aleron site</h3><p>What the work looks like and how our teams approach it.</p></div></li>
+<li><div><h3>Skills you bring and the route to certification</h3><p>Theory, practical assessment and NVQ: what each step gives you.</p></div></li>
+<li><div><h3>Live Q&amp;A</h3><p>Ask Andrew about training, certificates and getting your first job.</p></div></li>
+</ol>
+<div class="bonus-box" aria-labelledby="bonush">
+<div class="big" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#151515" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9 3l-1.5 6L12 21l4.5-12L15 3"/></svg></div>
+<div><div class="eyebrow">Stay to the end</div><h3 id="bonush">Career checklist and a discount code</h3><p>Everyone who watches to the end gets our fire stopping career checklist, showing pay levels by certification, plus a discount code for Aleron Academy courses.</p></div>
+</div>
+</div>
+</div></section>
+
+
+
+
+<section class="section white" aria-labelledby="sites"><div class="wrap">
+<div class="eyebrow">From our sites</div>
+<h2 id="sites" style="max-width:20ch">Knowledge and experience from real practitioners</h2>
+<div class="al-stats">
+<div class="al-stat"><b>16 years</b><span>in passive fire protection</span></div>
+<div class="al-stat"><b>3,000+</b><span>projects delivered</span></div>
+<div class="al-stat"><b>1,500+</b><span>clients across the UK</span></div>
+</div>
+<div class="gallery">
+<figure><img src="https://herman-aleron.github.io/aleron-academy/tilda/webinar/images/g7.webp" alt="Batt and board with sealant being prepared"></figure>
+<figure><img src="https://herman-aleron.github.io/aleron-academy/tilda/webinar/images/g2.webp" alt="Fire batt being cut to size on site"></figure>
+<figure><img src="https://herman-aleron.github.io/aleron-academy/tilda/webinar/images/g3.webp" alt="Operative sealing the head of a blockwork wall"></figure>
+<figure><img src="https://herman-aleron.github.io/aleron-academy/tilda/webinar/images/g9.webp" alt="Operative applying sealant with a gun in an electrical cupboard"></figure>
+<figure><img src="https://herman-aleron.github.io/aleron-academy/tilda/webinar/images/g5.webp" alt="Operative bringing fire-rated board into a service riser"></figure>
+<figure><img src="https://herman-aleron.github.io/aleron-academy/tilda/webinar/images/g11.webp" alt="Inspecting a fire door with a torch"></figure>
+</div>
+</div></section>
+
+
+<section class="register bgph" id="register" aria-labelledby="regh" style="background-image:url(https://herman-aleron.github.io/aleron-academy/tilda/webinar/images/bgreg.webp)"><div class="wrap split">
+<div><h2 id="regh">Book your place</h2><p class="intro"><span data-full>Wednesday 2 December 2026, 6.00 pm UK time</span>. Free, live and online. We’ll send you the Zoom link and a reminder before we start.</p><p class="intro reg-rec"><strong>Can’t make 2 December?</strong> Register anyway and we’ll send you the recording.</p><p class="intro reg-contact">Any questions? Email us at <a href="mailto:info@aleron.co.uk">info@aleron.co.uk</a>.</p></div>
+<div>
+<form class="form" id="reg-form" novalidate>
+<div class="row"><label>Name<input name="name" autocomplete="name" required></label><label>Email<input name="email" type="email" autocomplete="email" required></label></div>
+<label>Phone number<input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="07123 456789" pattern="[0-9+()\s-]{7,20}" required></label>
+<label>What best describes you?<select name="experience" required><option value="">Select an option</option><option value="new">I’m new to construction</option><option value="other_trade">I work in another construction trade</option><option value="fire_stopping_no_cert">I already work in fire stopping</option><option value="other">Other</option></select></label>
+<label class="check"><input type="checkbox" name="consent" required><span>I agree to receive emails, calls and texts about this webinar and Aleron Academy courses. I can unsubscribe at any time. <a href="#" data-privacy>Privacy policy</a></span></label>
+<p class="form-bonus"><strong>Bonus:</strong> watch to the end and get our fire stopping career checklist plus a discount code for Aleron Academy courses.</p>
+<button class="button" type="submit"><span>Book my <b class="free">FREE</b> place</span> <span aria-hidden="true">↗</span></button>
+<p class="fine btn-meta">Free · 30 min · Online</p>
+<p class="err" id="form-error" role="alert"></p>
+</form>
+<div class="form done" id="done" tabindex="-1">
+<h3>You’re in.</h3>
+<p>Your free place is booked for <strong>Wednesday 2 December 2026, 6.00 pm UK time</strong>.</p>
+<ol class="next">
+<li>Check your inbox for the Zoom link. If it isn’t there in a few minutes, look in spam or promotions.</li>
+<li>We’ll send a reminder before we start, and the recording afterwards.</li>
+<li>Stay to the end for the career checklist and your course discount code.</li>
+</ol>
+<h4>Add it to your calendar</h4>
+<div class="acts"><a class="button" id="gcal" target="_blank" rel="noopener noreferrer">Google Calendar</a><a class="button ghost" id="ics" download="aleron-webinar.ics">Outlook / Apple (.ics)</a></div>
+<div class="share">
+<h4>Know someone who should join?</h4>
+<p>Send this webinar to a friend or workmate thinking about fire stopping.</p>
+<div class="acts"><a class="button ghost" id="sh-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a><a class="button ghost" id="sh-mail">Email</a><button class="button ghost" type="button" id="sh-copy">Copy link</button></div>
+<p class="fine" id="sh-msg" role="status"></p>
+</div>
+<p class="fine">Questions? Email <a href="mailto:info@aleron.co.uk">info@aleron.co.uk</a>.</p>
+</div>
+</div>
+</div></section>
+
+<section class="section faq" aria-labelledby="faqh"><div class="wrap split">
+<div><h2 id="faqh">Questions before you register</h2><div class="side-ph"><img src="https://herman-aleron.github.io/aleron-academy/tilda/webinar/images/faq.webp" alt="Aleron operative with a sealant gun on site"></div></div><div>
+<details><summary>Do I need fire stopping experience?</summary><p>No. The session is for people new to construction, people coming from another trade and fire stoppers who want a recognised certificate.</p></details>
+<details><summary>How much does it cost?</summary><p>The live webinar is free.</p></details>
+<details><summary>Will there be a recording?</summary><p>Yes. Everyone who registers gets the recording by email after the webinar, even if you can’t join live. Join live if you can: the Q&amp;A only happens live.</p></details>
+<details><summary>Do I get a certificate for attending?</summary><p>No. Certificates come from the Aleron Academy courses. In the webinar we explain the route from Theory to Practical to NVQ.</p></details>
+<details><summary>Can I ask about training, NVQ or prices?</summary><p>Yes. Bring your questions to the live Q&amp;A.</p></details>
+</div></div></section>
+
+</main>
+<a class="button sticky-cta" id="sticky-cta" href="#register"><span>Book my <b class="free">FREE</b> place</span> <span aria-hidden="true">↗</span></a>
+<footer><div class="wrap"><span>© 2026 Aleron Fire Protection Limited</span><a href="https://fire-proof.co.uk/academy/" target="_blank" rel="noopener noreferrer">Aleron Academy</a></div></footer>
+
+</div>
+<script>
+/* Meta Pixel helper: one place for every tracked action */
+const PX_PAGE = 'webinar';
+window.__pxlog = [];
+function px(name, params, custom) {
+  const p = Object.assign({ page: PX_PAGE }, params || {});
+  window.__pxlog.push([name, p]);
+  if (/[?&]pxdebug=1/.test(location.search)) console.info('[pixel]', custom ? 'custom' : 'standard', name, p);
+  try { if (typeof fbq === 'function') fbq(custom ? 'trackCustom' : 'track', name, p); } catch (e) {}
+}
+</script>
+<script>
+/* ===== CONFIG ===== */
+const WEBINAR = {
+  title: 'How to Get Into Fire Stopping - Aleron Academy live webinar',
+  start: '2026-12-02T18:00:00Z',   // UTC. December in the UK = GMT, so 18:00Z = 6.00 pm UK time. TO CONFIRM WITH ANDREW
+  durationMin: 30,
+  joinNote: 'The Zoom link is in your confirmation email.'
+};
+const META_PIXEL_ID = '1476822027723349';         // Meta Pixel ID from Events Manager, e.g. '123456789012345'. Empty = pixel off.
+/* ===== Leads by email =====
+   Every form submission is emailed to LEAD_EMAIL.
+   Default service: FormSubmit (free). Before launch send ONE test submission and click
+   the activation link that FormSubmit emails to LEAD_EMAIL; until then submissions fail.
+   Optional: put a Web3Forms access key (web3forms.com, sent to LEAD_EMAIL) into WEB3FORMS_KEY
+   to use Web3Forms instead. */
+const LEAD_EMAIL = 'academy@aleron.co.uk';
+const WEB3FORMS_KEY = '';
+function leadFields(form, extra) {
+  const out = {};
+  form.querySelectorAll('input,select,textarea').forEach(el => {
+    if (!el.name || el.closest('[hidden]') || el.type === 'checkbox') return;
+    const label = (el.closest('label') ? el.closest('label').childNodes[0].textContent : el.name).replace(/\(optional\)/i, '').trim() || el.name;
+    const val = el.tagName === 'SELECT' ? (el.selectedOptions[0] ? el.selectedOptions[0].textContent : '') : el.value;
+    if (val) out[label] = val.trim();
+  });
+  out['Marketing consent'] = 'Yes';
+  return Object.assign(out, extra);
+}
+async function sendLead(fields, subject) {
+  let url, body;
+  if (WEB3FORMS_KEY) {
+    url = 'https://api.web3forms.com/submit';
+    body = Object.assign({ access_key: WEB3FORMS_KEY, subject, from_name: 'Aleron Academy website' }, fields);
+  } else {
+    url = 'https://formsubmit.co/ajax/' + LEAD_EMAIL;
+    body = Object.assign({ _subject: subject, _template: 'table', _captcha: 'false' }, fields);
+    if (fields.Email) body._replyto = fields.Email;
+  }
+  const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(body) });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok || !(j.success === true || j.success === 'true')) throw new Error(j.message || r.status);
+}
+
+const PRIVACY_URL = 'https://fire-proof.co.uk/privacy-policy';           // link to the privacy policy
+
+/* ===== dates on the page ===== */
+const start = new Date(WEBINAR.start), end = new Date(start.getTime() + WEBINAR.durationMin * 60000);
+const tz = {timeZone: 'Europe/London'};
+const dLong = start.toLocaleDateString('en-GB', {...tz, weekday: 'long', day: 'numeric', month: 'long'});
+const year = start.toLocaleDateString('en-GB', {...tz, year: 'numeric'});
+const time = start.toLocaleTimeString('en-GB', {...tz, hour: 'numeric', minute: '2-digit', hour12: true}).replace(':', '.').replace(/\s?(am|pm)/i, ' $1').toLowerCase();
+document.querySelectorAll('[data-date-long]').forEach(e => e.textContent = dLong);
+document.querySelectorAll('[data-year]').forEach(e => e.textContent = year);
+document.querySelectorAll('[data-time]').forEach(e => e.textContent = time);
+document.querySelectorAll('[data-duration]').forEach(e => e.textContent = WEBINAR.durationMin);
+document.querySelectorAll('[data-full]').forEach(e => e.textContent = `${dLong} ${year}, ${time} UK time`);
+document.querySelectorAll('[data-privacy]').forEach(e => { e.href = PRIVACY_URL; e.target = '_blank'; e.rel = 'noopener'; });
+
+/* ===== calendar links ===== */
+const stamp = d => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+document.getElementById('gcal').href = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+  + '&text=' + encodeURIComponent(WEBINAR.title)
+  + '&dates=' + stamp(start) + '/' + stamp(end)
+  + '&details=' + encodeURIComponent(WEBINAR.joinNote);
+const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Aleron Academy//Webinar//EN','BEGIN:VEVENT',
+  'UID:aleron-webinar-' + stamp(start) + '@fire-proof.co.uk','DTSTAMP:' + stamp(new Date()),
+  'DTSTART:' + stamp(start),'DTEND:' + stamp(end),'SUMMARY:' + WEBINAR.title,'DESCRIPTION:' + WEBINAR.joinNote,
+  'END:VEVENT','END:VCALENDAR'].join('\r\n');
+document.getElementById('ics').href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+
+/* ===== form ===== */
+const form = document.getElementById('reg-form'), err = document.getElementById('form-error'), done = document.getElementById('done');
+form.addEventListener('submit', async e => {
+  e.preventDefault(); err.textContent = '';
+  if (!form.checkValidity()) { err.textContent = 'Please fill in all fields: name, a valid email, phone number and your experience, and tick the consent box.'; return; }
+  const data = Object.fromEntries(new FormData(form));
+  data.consent = true;
+  const p = new URLSearchParams(location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(k => { if (p.get(k)) data[k] = p.get(k); });
+  data.webinar_start = WEBINAR.start; data.funnel = 'A-webinar'; data.page = location.href;
+  try {
+    const utm = {}; ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k => { if (data[k]) utm[k] = data[k]; });
+    await sendLead(leadFields(form, Object.assign({ 'Webinar': 'How to Get Into Fire Stopping, Wed 2 Dec 2026, 6.00 pm UK', 'Page': location.href.split('#')[0] }, utm)), 'Webinar registration: ' + (data.name || '') + ' (2 Dec)');
+    {
+      px('CompleteRegistration', { content_name: 'webinar_2026-12-02', status: 'registered', experience: data.experience || '', value: 0, currency: 'GBP' });
+    }
+    form.hidden = true; done.classList.add('show'); done.focus();
+  } catch (x) {
+    err.textContent = 'Something went wrong and your place was not saved. Please try again.';
+  }
+});
+
+/* ===== Tilda: Meta Pixel (1476822027723349) is already loaded by the site, so this block
+   does not load it again and shows no cookie banner. Events go to window.fbq via px(). ===== */
+(() => {
+  // ViewContent once, when the registration form comes into view
+  const reg = document.getElementById('register');
+  if ('IntersectionObserver' in window && reg) {
+    const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { px('ViewContent', { content_name: 'webinar_registration_form' }); io.disconnect(); } });
+    io.observe(reg);
+  }
+})();
+
+/* ===== mobile sticky button ===== */
+(() => {
+  const cta = document.getElementById('sticky-cta'); if (!cta || !('IntersectionObserver' in window)) return;
+  const seen = new Set();
+  const io = new IntersectionObserver(es => { es.forEach(e => e.isIntersecting ? seen.add(e.target) : seen.delete(e.target)); cta.classList.toggle('hide', seen.size > 0); });
+  [document.querySelector('.hero'), document.getElementById('register')].forEach(el => el && io.observe(el));
+})();
+/* ===== share after registration ===== */
+(() => {
+  const url = location.href.split('#')[0].split('?')[0];
+  const text = 'Free 30-min webinar: How to Get Into Fire Stopping (Aleron Academy, 2 Dec, 6pm UK). Thought of you: ';
+  const wa = document.getElementById('sh-wa'), em = document.getElementById('sh-mail'), cp = document.getElementById('sh-copy'), msg = document.getElementById('sh-msg');
+  if (!wa) return;
+  wa.href = 'https://wa.me/?text=' + encodeURIComponent(text + url);
+  em.href = 'mailto:?subject=' + encodeURIComponent('Free fire stopping webinar') + '&body=' + encodeURIComponent(text + url);
+  const track = m => px('ShareWebinar', { method: m }, true);
+  wa.addEventListener('click', () => track('whatsapp')); em.addEventListener('click', () => track('email'));
+  cp.addEventListener('click', async () => {
+    try { if (navigator.share) { await navigator.share({ title: 'How to Get Into Fire Stopping', text, url }); track('native'); return; } } catch (e) { if (e && e.name === 'AbortError') return; }
+    try { await navigator.clipboard.writeText(url); msg.textContent = 'Link copied.'; track('copy'); }
+    catch (e) { msg.textContent = url; }
+  });
+})();
+
+/* ===== Meta Pixel: event plan (see Pixel_events_plan.md) =====
+   px(name, params, custom) logs every event to window.__pxlog and sends it to Meta
+   only if the visitor accepted cookies (fbq exists only after consent).
+   Add ?pxdebug=1 to the URL to see events in the browser console. */
+(() => {
+  const loc = el => {
+    if (el.closest('header')) return 'header';
+    if (el.classList.contains('sticky-cta')) return 'sticky';
+    const s = el.closest('section,footer,.stats,.team-banner,.hero-card,.done');
+    if (!s) return 'page';
+    if (s.id) return s.id === 'top' ? 'hero' : s.id;
+    return (s.className || s.tagName).toString().split(' ').find(c => !['section', 'white', 'bgph'].includes(c)) || 'page';
+  };
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a,button'); if (!a) return;
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('mailto:')) return px('Contact', { method: 'email', location: loc(a) });
+    if (href.startsWith('tel:')) return px('Contact', { method: 'phone', location: loc(a) });
+    if (/^#(register|courses|enquire|programme|routes|faq|teams|reviews)$/.test(href) || a.hasAttribute('data-enquire'))
+      px('CTAClick', { target: (href.slice(1) || 'enquire'), location: loc(a), label: a.innerText.replace(/\s+/g, ' ').trim().slice(0, 40) }, true);
+  }, true);
+  document.addEventListener('click', e => {
+    const sm = e.target.closest('summary'); if (!sm) return;
+    const d = sm.parentElement;
+    setTimeout(() => {
+      if (!d.open || d._px) return;
+      d._px = 1;
+      const q = (sm.querySelector('h3') || sm).innerText.replace(/\s+/g, ' ').trim().slice(0, 80);
+      if (d.classList.contains('module')) px('ModuleOpen', { module: q }, true); else px('FAQOpen', { question: q }, true);
+    }, 0);
+  }, true);
+  const seen = new Set();
+  addEventListener('scroll', () => {
+    const h = document.documentElement, pct = (h.scrollTop + innerHeight) / h.scrollHeight * 100;
+    [50, 90].forEach(m => { if (pct >= m && !seen.has(m)) { seen.add(m); px('ScrollDepth', { percent: m }, true); } });
+  }, { passive: true });
+  let t = 0; const iv = setInterval(() => { if (document.visibilityState === 'visible' && (t += 5) >= 30) { px('EngagedVisit', { seconds: 30 }, true); clearInterval(iv); } }, 5000);
+  document.querySelectorAll('form.form').forEach(f => {
+    let started = 0;
+    f.addEventListener('focusin', () => { if (!started) { started = 1; px('FormStart', { form: f.id }, true); } });
+    f.addEventListener('submit', () => {
+      if (!f.checkValidity()) px('FormError', { form: f.id, fields: [...f.elements].filter(x => x.name && !x.checkValidity()).map(x => x.name).join(',') }, true);
+    }, true);
+  });
+})();
+
+/* webinar-only events */
+(() => {
+  const g = document.getElementById('gcal'), i = document.getElementById('ics');
+  if (g) g.addEventListener('click', () => px('AddToCalendar', { calendar: 'google' }, true));
+  if (i) i.addEventListener('click', () => px('AddToCalendar', { calendar: 'ics' }, true));
+})();
+</script>
+
