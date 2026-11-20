@@ -73,6 +73,7 @@ h1{font-size:2.7rem}h2{font-size:2rem}
 footer{padding-bottom:84px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sticky-cta{transition:none}}
+.form .err,.register .form .err{color:#b3261e!important;font-weight:700}
 </style>
 </head>
 <body>
@@ -328,7 +329,8 @@ form.addEventListener('submit', async e => {
     }
     form.hidden = true; done.classList.add('show'); done.focus();
   } catch (x) {
-    err.textContent = 'Something went wrong and your place was not saved. Please try again.';
+    console.warn('[form] not sent:', x && x.message);
+    err.textContent = 'Sorry, your place was not saved. Please try again in a minute, or email academy@aleron.co.uk and we will book you in.';
   }
 });
 

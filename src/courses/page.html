@@ -77,6 +77,7 @@ footer{padding:28px 0;font-size:.86rem;background:var(--ink);color:#d4d1c8}foote
 footer{padding-bottom:88px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sticky-cta{transition:none}}
+.form .err,.register .form .err{color:#b3261e!important;font-weight:700}
 </style>
 </head>
 <body>
@@ -357,7 +358,7 @@ form.addEventListener('submit', async e => {
       px('Lead', { content_name: `${data.trade} ${data.level}`, content_category: data.trade, level: data.level || '', team: data.team_size ? 'yes' : 'no' });
     }
     form.hidden = true; done.classList.add('show'); done.focus();
-  } catch (x) { err.textContent = 'Something went wrong and your enquiry was not sent. Please try again or email academy@aleron.co.uk.'; }
+  } catch (x) { console.warn('[form] not sent:', x && x.message); err.textContent = 'Sorry, your enquiry was not sent. Please try again in a minute, or email academy@aleron.co.uk.'; }
 });
 
 /* ===== Meta Pixel, loaded only after consent ===== */

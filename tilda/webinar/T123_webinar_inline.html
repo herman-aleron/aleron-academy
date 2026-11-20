@@ -60,8 +60,9 @@
 #aleron-lp footer{padding-bottom:84px}
 }
 @media(prefers-reduced-motion:reduce){#aleron-lp{scroll-behavior:auto}#aleron-lp .sticky-cta{transition:none}}
+#aleron-lp .form .err,#aleron-lp .register .form .err{color:#b3261e!important;font-weight:700}
 
-#aleron-lp{display:block;position:relative;text-align:left;-webkit-font-smoothing:antialiased}#aleron-lp [id]{scroll-margin-top:90px}#aleron-lp input,#aleron-lp select,#aleron-lp textarea,#aleron-lp button{font-family:Arial,sans-serif}
+#aleron-lp{display:block;position:relative;text-align:left;-webkit-font-smoothing:antialiased}#aleron-lp section.hero{padding-top:var(--site-head,0px)!important}#aleron-lp [id]{scroll-margin-top:calc(var(--site-head,0px) + 20px)}#aleron-lp input,#aleron-lp select,#aleron-lp textarea,#aleron-lp button{font-family:Arial,sans-serif}
 
 </style>
 <div id="aleron-lp">
@@ -314,7 +315,8 @@ form.addEventListener('submit', async e => {
     }
     form.hidden = true; done.classList.add('show'); done.focus();
   } catch (x) {
-    err.textContent = 'Something went wrong and your place was not saved. Please try again.';
+    console.warn('[form] not sent:', x && x.message);
+    err.textContent = 'Sorry, your place was not saved. Please try again in a minute, or email academy@aleron.co.uk and we will book you in.';
   }
 });
 
@@ -404,6 +406,30 @@ form.addEventListener('submit', async e => {
   const g = document.getElementById('gcal'), i = document.getElementById('ics');
   if (g) g.addEventListener('click', () => px('AddToCalendar', { calendar: 'google' }, true));
   if (i) i.addEventListener('click', () => px('AddToCalendar', { calendar: 'ics' }, true));
+})();
+
+/* ===== Tilda: keep the page clear of the site header =====
+   The site header (#t-header) draws its menu over the top of the next block.
+   Measure how far it reaches into this block and pad the first section by that much. */
+(() => {
+  const lp = document.getElementById('aleron-lp'); if (!lp) return;
+  function fit() {
+    if (scrollY > 50) return;
+    const hdr = document.getElementById('t-header');
+    if (!hdr) { lp.style.setProperty('--site-head', '0px'); return; }
+    const lpTop = lp.getBoundingClientRect().top + scrollY;
+    let bottom = 0;
+    hdr.querySelectorAll('*').forEach(el => {
+      const cs = getComputedStyle(el);
+      if (cs.display === 'none' || cs.visibility === 'hidden' || +cs.opacity === 0) return;
+      const r = el.getBoundingClientRect();
+      if (!r.height || r.height > 300 || r.right <= 0 || r.left >= innerWidth) return;
+      bottom = Math.max(bottom, r.bottom + scrollY);
+    });
+    lp.style.setProperty('--site-head', Math.max(0, Math.round(bottom - lpTop)) + 'px');
+  }
+  fit(); setTimeout(fit, 400); setTimeout(fit, 1500);
+  addEventListener('load', fit); addEventListener('resize', fit);
 })();
 </script>
 

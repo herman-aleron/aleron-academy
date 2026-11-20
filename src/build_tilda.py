@@ -64,6 +64,31 @@ def scope_css(css):
     return ''.join(out)
 
 # ---------- page transforms ----------
+FIT = r'''
+/* ===== Tilda: keep the page clear of the site header =====
+   The site header (#t-header) draws its menu over the top of the next block.
+   Measure how far it reaches into this block and pad the first section by that much. */
+(() => {
+  const lp = document.getElementById('aleron-lp'); if (!lp) return;
+  function fit() {
+    if (scrollY > 50) return;
+    const hdr = document.getElementById('t-header');
+    if (!hdr) { lp.style.setProperty('--site-head', '0px'); return; }
+    const lpTop = lp.getBoundingClientRect().top + scrollY;
+    let bottom = 0;
+    hdr.querySelectorAll('*').forEach(el => {
+      const cs = getComputedStyle(el);
+      if (cs.display === 'none' || cs.visibility === 'hidden' || +cs.opacity === 0) return;
+      const r = el.getBoundingClientRect();
+      if (!r.height || r.height > 300 || r.right <= 0 || r.left >= innerWidth) return;
+      bottom = Math.max(bottom, r.bottom + scrollY);
+    });
+    lp.style.setProperty('--site-head', Math.max(0, Math.round(bottom - lpTop)) + 'px');
+  }
+  fit(); setTimeout(fit, 400); setTimeout(fit, 1500);
+  addEventListener('load', fit); addEventListener('resize', fit);
+})();
+'''
 CONSENT_START = '/* ===== Meta Pixel, loaded only after consent ===== */'
 def strip_consent(js):
     a = js.index(CONSENT_START)
@@ -81,9 +106,10 @@ def build(page, src, spec):
     html = re.sub(r'<div class="cookie" id="cookie".*?</div>\n</div>\n', '', html, count=1, flags=re.S)
     html = re.sub(r'( · )?<button class="cookie-link" type="button" id="ck-open" hidden>[^<]*</button>', '', html)
     scripts = strip_consent(scripts)
+    scripts = scripts[:scripts.rindex('</script>')] + FIT + scripts[scripts.rindex('</script>'):]
     assert 'ck-yes' not in html and 'id="cookie"' not in html and '<header class="bar"' not in html
     extra_css = (f'\n{SCOPE}{{display:block;position:relative;text-align:left;-webkit-font-smoothing:antialiased}}'
-                 f'{SCOPE} [id]{{scroll-margin-top:90px}}'
+                 f'{SCOPE} section.hero{{padding-top:var(--site-head,0px)!important}}{SCOPE} [id]{{scroll-margin-top:calc(var(--site-head,0px) + 20px)}}'
                  f'{SCOPE} input,{SCOPE} select,{SCOPE} textarea,{SCOPE} button{{font-family:Arial,sans-serif}}\n')
     reset = ','.join(f'{SCOPE} {t}' for t in 'h1 h2 h3 h4 p li a span b strong small label blockquote figcaption summary dt dd'.split()) + '{font-family:inherit;color:inherit}\n'
     scoped = reset + scope_css(css) + extra_css
