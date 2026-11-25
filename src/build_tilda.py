@@ -141,14 +141,14 @@ def build(page, src, spec):
     # split body into markup and scripts
     first_script = body.index('<script>')
     html, scripts = body[:first_script], body[first_script:]
-    html = re.sub(r'<header class="bar">.*?</header>\n?', '', html, count=1, flags=re.S)
+    # our own sticky header (logo, menu, CTA) stays: the site's header and footer are hidden on these pages
     html = re.sub(r'<div class="cookie" id="cookie".*?</div>\n</div>\n', '', html, count=1, flags=re.S)
     html = re.sub(r'( · )?<button class="cookie-link" type="button" id="ck-open" hidden>[^<]*</button>', '', html)
     scripts = strip_consent(scripts)
     scripts = scripts[:scripts.rindex('</script>')] + FIT + scripts[scripts.rindex('</script>'):]
-    assert 'ck-yes' not in html and 'id="cookie"' not in html and '<header class="bar"' not in html
+    assert 'ck-yes' not in html and 'id="cookie"' not in html
     extra_css = (f'\n{SCOPE}{{display:block;position:relative;text-align:left;-webkit-font-smoothing:antialiased}}'
-                 f'{SCOPE} section.hero{{padding-top:var(--site-head,0px)!important}}{SCOPE} [id]{{scroll-margin-top:calc(var(--site-head,0px) + 20px)}}'
+                 f'#t-header,#t-footer{{display:none!important}}{SCOPE} [id]{{scroll-margin-top:96px}}'
                  f'{SCOPE} input,{SCOPE} select,{SCOPE} textarea,{SCOPE} button{{font-family:Arial,sans-serif}}\n')
     reset = ','.join(f'{SCOPE} {t}' for t in 'h1 h2 h3 h4 p li a span b strong small label blockquote figcaption summary dt dd'.split()) + '{font-family:inherit;color:inherit}\n'
     scoped = reset + scope_css(css) + extra_css
