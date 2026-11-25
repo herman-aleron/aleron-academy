@@ -81,7 +81,7 @@
 <aside class="hero-card" aria-label="Webinar details">
 <div class="eyebrow">Free live webinar</div>
 <ul class="hc-list">
-<li><span>Date</span><strong>Wednesday 2 December 2026</strong></li>
+<li><span>Date</span><strong>Wednesday 9 December 2026</strong></li>
 <li><span>Time</span><strong>6.00 pm UK time</strong></li>
 <li><span>Length</span><strong>30 minutes, online</strong></li>
 <li><span>Price</span><strong>Free</strong></li>
@@ -93,7 +93,7 @@
 </section>
 
 <div class="facts"><div class="wrap">
-<div class="fact"><b data-date-long>Wednesday 2 December</b><span data-year>2026</span></div>
+<div class="fact"><b data-date-long>Wednesday 9 December</b><span data-year>2026</span></div>
 <div class="fact"><b data-time>6.00 pm</b><span>UK time</span></div>
 <div class="fact"><b><span data-duration>30</span> minutes</b><span>Live online · Zoom</span></div>
 </div></div>
@@ -169,7 +169,7 @@
 
 
 <section class="register bgph" id="register" aria-labelledby="regh" style="background-image:url(https://herman-aleron.github.io/aleron-academy/tilda/webinar/images/bgreg.webp)"><div class="wrap split">
-<div><h2 id="regh">Book your place</h2><p class="intro"><span data-full>Wednesday 2 December 2026, 6.00 pm UK time</span>. Free, live and online. We’ll send you the Zoom link and a reminder before we start.</p><p class="intro reg-rec"><strong>Can’t make 2 December?</strong> Register anyway and we’ll send you the recording.</p><p class="intro reg-contact">Any questions? Email us at <a href="mailto:info@aleron.co.uk">info@aleron.co.uk</a>.</p></div>
+<div><h2 id="regh">Book your place</h2><p class="intro"><span data-full>Wednesday 9 December 2026, 6.00 pm UK time</span>. Free, live and online. We’ll send you the Zoom link and a reminder before we start.</p><p class="intro reg-rec"><strong>Can’t make 9 December?</strong> Register anyway and we’ll send you the recording.</p><p class="intro reg-contact">Any questions? Email us at <a href="mailto:info@aleron.co.uk">info@aleron.co.uk</a>.</p></div>
 <div>
 <form class="form" id="reg-form" novalidate>
 <div class="row"><label>Name<input name="name" autocomplete="name" required></label><label>Email<input name="email" type="email" autocomplete="email" required></label></div>
@@ -183,7 +183,7 @@
 </form>
 <div class="form done" id="done" tabindex="-1">
 <h3>You’re in.</h3>
-<p>Your free place is booked for <strong>Wednesday 2 December 2026, 6.00 pm UK time</strong>.</p>
+<p>Your free place is booked for <strong>Wednesday 9 December 2026, 6.00 pm UK time</strong>.</p>
 <ol class="next">
 <li>Check your inbox for the Zoom link. If it isn’t there in a few minutes, look in spam or promotions.</li>
 <li>We’ll send a reminder before we start, and the recording afterwards.</li>
@@ -231,7 +231,7 @@ function px(name, params, custom) {
 /* ===== CONFIG ===== */
 const WEBINAR = {
   title: 'How to Get Into Fire Stopping - Aleron Academy live webinar',
-  start: '2026-12-02T18:00:00Z',   // UTC. December in the UK = GMT, so 18:00Z = 6.00 pm UK time. TO CONFIRM WITH ANDREW
+  start: '2026-12-09T18:00:00Z',   // UTC. December in the UK = GMT, so 18:00Z = 6.00 pm UK time. TO CONFIRM WITH ANDREW
   durationMin: 30,
   joinNote: 'The Zoom link is in your confirmation email.'
 };
@@ -312,7 +312,7 @@ form.addEventListener('submit', async e => {
     const utm = {}; ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k => { if (data[k]) utm[k] = data[k]; });
     await sendLead(leadFields(form, Object.assign({ 'Webinar': 'How to Get Into Fire Stopping, Wed 2 Dec 2026, 6.00 pm UK', 'Page': location.href.split('#')[0] }, utm)), 'Webinar registration: ' + (data.name || '') + ' (2 Dec)');
     {
-      px('CompleteRegistration', { content_name: 'webinar_2026-12-02', status: 'registered', experience: data.experience || '', value: 0, currency: 'GBP' });
+      px('CompleteRegistration', { content_name: 'webinar_2026-12-09', status: 'registered', experience: data.experience || '', value: 0, currency: 'GBP' });
     }
     form.hidden = true; done.classList.add('show'); done.focus();
   } catch (x) {
