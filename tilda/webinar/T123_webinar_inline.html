@@ -62,7 +62,7 @@
 @media(prefers-reduced-motion:reduce){#aleron-lp{scroll-behavior:auto}#aleron-lp .sticky-cta{transition:none}}
 #aleron-lp .form .err,#aleron-lp .register .form .err{color:#b3261e!important;font-weight:700}
 
-#aleron-lp{display:block;position:relative;text-align:left;-webkit-font-smoothing:antialiased}#t-header,#t-footer{display:none!important}#aleron-lp [id]{scroll-margin-top:96px}#aleron-lp input,#aleron-lp select,#aleron-lp textarea,#aleron-lp button{font-family:Arial,sans-serif}
+#aleron-lp{display:block;position:relative;text-align:left;-webkit-font-smoothing:antialiased}#t-header,#t-footer{display:none!important}#aleron-lp section[id]{scroll-margin-top:0}#aleron-lp input,#aleron-lp select,#aleron-lp textarea,#aleron-lp button{font-family:Arial,sans-serif}
 
 </style>
 <div id="aleron-lp">
@@ -457,7 +457,12 @@ form.addEventListener('submit', async e => {
   }
   function go(id) {
     const t = document.getElementById(id); if (!t || !lp.contains(t)) return false;
-    const target = () => Math.max(0, t.getBoundingClientRect().top + scrollY - Math.max(fixedTop(), 70) - 12);
+    const target = () => {
+      const bar = lp.querySelector('header.bar'), bh = bar ? bar.getBoundingClientRect().height : 0;
+      const pad = parseFloat(getComputedStyle(t).paddingTop) || 0;
+      /* put the section's first content just under our sticky bar (cut the section's own top padding) */
+      return Math.max(0, t.getBoundingClientRect().top + scrollY + pad - Math.max(fixedTop(), bh, 64) - 24);
+    };
     const from = scrollY, to = target(), t0 = performance.now(), dur = 450;
     const step = now => {
       const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);

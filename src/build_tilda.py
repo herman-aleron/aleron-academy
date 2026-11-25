@@ -109,7 +109,12 @@ FIT = r'''
   }
   function go(id) {
     const t = document.getElementById(id); if (!t || !lp.contains(t)) return false;
-    const target = () => Math.max(0, t.getBoundingClientRect().top + scrollY - Math.max(fixedTop(), 70) - 12);
+    const target = () => {
+      const bar = lp.querySelector('header.bar'), bh = bar ? bar.getBoundingClientRect().height : 0;
+      const pad = parseFloat(getComputedStyle(t).paddingTop) || 0;
+      /* put the section's first content just under our sticky bar (cut the section's own top padding) */
+      return Math.max(0, t.getBoundingClientRect().top + scrollY + pad - Math.max(fixedTop(), bh, 64) - 24);
+    };
     const from = scrollY, to = target(), t0 = performance.now(), dur = 450;
     const step = now => {
       const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
@@ -148,7 +153,7 @@ def build(page, src, spec):
     scripts = scripts[:scripts.rindex('</script>')] + FIT + scripts[scripts.rindex('</script>'):]
     assert 'ck-yes' not in html and 'id="cookie"' not in html
     extra_css = (f'\n{SCOPE}{{display:block;position:relative;text-align:left;-webkit-font-smoothing:antialiased}}'
-                 f'#t-header,#t-footer{{display:none!important}}{SCOPE} [id]{{scroll-margin-top:96px}}'
+                 f'#t-header,#t-footer{{display:none!important}}{SCOPE} section[id]{{scroll-margin-top:0}}'
                  f'{SCOPE} input,{SCOPE} select,{SCOPE} textarea,{SCOPE} button{{font-family:Arial,sans-serif}}\n')
     reset = ','.join(f'{SCOPE} {t}' for t in 'h1 h2 h3 h4 p li a span b strong small label blockquote figcaption summary dt dd'.split()) + '{font-family:inherit;color:inherit}\n'
     scoped = reset + scope_css(css) + extra_css
