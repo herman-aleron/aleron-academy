@@ -288,10 +288,12 @@ document.querySelectorAll('[data-privacy]').forEach(e => { e.href = PRIVACY_URL;
 
 /* ===== calendar links ===== */
 const stamp = d => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-document.getElementById('gcal').href = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+/* Google Calendar: copy-to-my-calendar link of the public event in Aleron's calendar (9 Dec 2026, 18:00 UK). If empty, a link is generated from WEBINAR. */
+const GCAL_EVENT_URL = 'https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MTRldGprdm5wNjRrMDV2aG52M2FkNzEzY3QgYW5uYUBpbmRvbWUuY28udWs&tmsrc=anna%40indome.co.uk';
+document.getElementById('gcal').href = GCAL_EVENT_URL || ('https://calendar.google.com/calendar/render?action=TEMPLATE'
   + '&text=' + encodeURIComponent(WEBINAR.title)
   + '&dates=' + stamp(start) + '/' + stamp(end)
-  + '&details=' + encodeURIComponent(WEBINAR.joinNote);
+  + '&details=' + encodeURIComponent(WEBINAR.joinNote));
 const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Aleron Academy//Webinar//EN','BEGIN:VEVENT',
   'UID:aleron-webinar-' + stamp(start) + '@fire-proof.co.uk','DTSTAMP:' + stamp(new Date()),
   'DTSTART:' + stamp(start),'DTEND:' + stamp(end),'SUMMARY:' + WEBINAR.title,'DESCRIPTION:' + WEBINAR.joinNote,
