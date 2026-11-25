@@ -267,7 +267,8 @@ async function sendLead(fields, subject) {
     body = Object.assign({ _subject: subject, _template: 'table', _captcha: 'false' }, fields);
     if (fields.Email) body._replyto = fields.Email;
   }
-  const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(body) });
+  const ac = new AbortController(), tm = setTimeout(() => ac.abort(), 20000);
+  let r; try { r = await fetch(url, { method: 'POST', signal: ac.signal, headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(body) }); } finally { clearTimeout(tm); }
   const j = await r.json().catch(() => ({}));
   if (!r.ok || !(j.success === true || j.success === 'true')) throw new Error(j.message || r.status);
 }
