@@ -232,7 +232,7 @@ function px(name, params, custom) {
 /* ===== CONFIG ===== */
 const WEBINAR = {
   title: 'How to Get Into Fire Stopping - Aleron Academy live webinar',
-  start: '2026-12-09T18:00:00Z',   // UTC. December in the UK = GMT, so 18:00Z = 6.00 pm UK time. TO CONFIRM WITH ANDREW
+  start: '2026-12-09T18:00:00Z',   // UTC. December in the UK = GMT, so 18:00Z = 6.00 pm UK time. Date 9 Dec confirmed 26.11.2026
   durationMin: 30,
   joinNote: 'The Zoom link is in your confirmation email.'
 };
@@ -314,7 +314,7 @@ form.addEventListener('submit', async e => {
   data.webinar_start = WEBINAR.start; data.funnel = 'A-webinar'; data.page = location.href;
   try {
     const utm = {}; ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k => { if (data[k]) utm[k] = data[k]; });
-    await sendLead(leadFields(form, Object.assign({ 'Webinar': 'How to Get Into Fire Stopping, Wed 2 Dec 2026, 6.00 pm UK', 'Page': location.href.split('#')[0] }, utm)), 'Webinar registration: ' + (data.name || '') + ' (2 Dec)');
+    await sendLead(leadFields(form, Object.assign({ 'Webinar': 'How to Get Into Fire Stopping, Wed 9 Dec 2026, 6.00 pm UK', 'Page': location.href.split('#')[0] }, utm)), 'Webinar registration: ' + (data.name || '') + ' (9 Dec)');
     {
       px('CompleteRegistration', { content_name: 'webinar_2026-12-09', status: 'registered', experience: data.experience || '', value: 0, currency: 'GBP' });
     }
@@ -346,7 +346,7 @@ form.addEventListener('submit', async e => {
 /* ===== share after registration ===== */
 (() => {
   const url = location.href.split('#')[0].split('?')[0];
-  const text = 'Free 30-min webinar: How to Get Into Fire Stopping (Aleron Academy, 2 Dec, 6pm UK). Thought of you: ';
+  const text = 'Free 30-min webinar: How to Get Into Fire Stopping (Aleron Academy, 9 Dec, 6pm UK). Thought of you: ';
   const wa = document.getElementById('sh-wa'), em = document.getElementById('sh-mail'), cp = document.getElementById('sh-copy'), msg = document.getElementById('sh-msg');
   if (!wa) return;
   wa.href = 'https://wa.me/?text=' + encodeURIComponent(text + url);
