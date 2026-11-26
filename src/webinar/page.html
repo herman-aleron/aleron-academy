@@ -338,7 +338,7 @@ form.addEventListener('submit', async e => {
   }
   try {
     const utm = {}; ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k => { if (data[k]) utm[k] = data[k]; });
-    await sendLead(leadFields(form, Object.assign({ 'Webinar': 'How to Get Into Fire Stopping, Thu 10 Dec 2026, 6.00 pm UK', 'Page': location.href.split('#')[0] }, utm)), 'Webinar registration: ' + (data.name || '') + ' (9 Dec)');
+    await sendLead(leadFields(form, Object.assign({ 'Webinar': 'How to Get Into Fire Stopping, Thu 10 Dec 2026, 6.00 pm UK', 'Page': location.href.split('#')[0] }, utm)), 'Webinar registration: ' + (data.name || '') + ' (10 Dec)');
     {
       px('CompleteRegistration', { content_name: 'webinar_2026-12-10', status: 'registered', experience: data.experience || '', value: 0, currency: 'GBP' });
     }
