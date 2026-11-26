@@ -15,7 +15,7 @@ SCOPE = '#aleron-lp'
 def src_path(f): return (P1 if os.path.exists(P1 + f) else P2) + f
 
 def webp(f, w, q, dest):
-    im = ImageOps.exif_transpose(Image.open(f)).convert('RGB'); im.thumbnail((w, w)); im.save(dest, 'WEBP', quality=q, method=6)
+    im = ImageOps.exif_transpose(Image.open(f)); im = im.convert('RGBA' if ('A' in im.getbands() or 'transparency' in im.info) else 'RGB'); im.thumbnail((w, w)); im.save(dest, 'WEBP', quality=q, method=6)
 
 def datauri(path):
     b = open(path, 'rb').read(); return 'data:image/webp;base64,' + base64.b64encode(b).decode()
