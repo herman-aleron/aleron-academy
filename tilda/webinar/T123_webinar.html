@@ -171,7 +171,7 @@
 
 
 <section class="register bgph" id="register" aria-labelledby="regh" style="background-image:url(__IMG_BASE__bgreg.webp)"><div class="wrap split">
-<div><h2 id="regh">Book your place</h2><p class="intro"><span data-full>Wednesday 9 December 2026, 6.00 pm UK time</span>. Free, live and online. We’ll send you the Zoom link and a reminder before we start.</p><p class="intro reg-rec"><strong>Can’t make 9 December?</strong> Register anyway and we’ll send you the recording.</p><p class="intro reg-contact">Any questions? Email us at <a href="mailto:academy@aleron.co.uk">academy@aleron.co.uk</a>.</p><figure class="vid " data-vid="webinar"><div class="vid-box"><video preload="none" playsinline crossorigin="anonymous" poster="https://herman-aleron.github.io/aleron-academy/media/webinar-poster.jpg" aria-label="Welcome video from Andrew Smith about the free live webinar How to Get Into Fire Stopping"><source src="https://herman-aleron.github.io/aleron-academy/media/webinar.mp4" type="video/mp4"><track kind="captions" srclang="en" label="English" src="https://herman-aleron.github.io/aleron-academy/media/webinar.en.vtt" default></video><button class="vid-play" type="button" aria-label="Play video"><span class="tri" aria-hidden="true"></span><span class="vt">Watch · 0:55</span></button></div><figcaption>Andrew Smith, Aleron Fire Protection</figcaption></figure></div>
+<div><h2 id="regh">Book your place</h2><p class="intro"><span data-full>Wednesday 9 December 2026, 6.00 pm UK time</span>. Free, live and online. We’ll send you the Zoom link and a reminder before we start.</p><p class="intro reg-rec"><strong>Can’t make 9 December?</strong> Register anyway and we’ll send you the recording.</p><p class="intro reg-contact">Any questions? Email us at <a href="mailto:academy@aleron.co.uk">academy@aleron.co.uk</a>.</p><figure class="vid " data-vid="webinar"><div class="vid-box"><video preload="none" playsinline poster="https://herman-aleron.github.io/aleron-academy/media/webinar-poster.jpg" aria-label="Welcome video from Andrew Smith about the free live webinar How to Get Into Fire Stopping"><source src="https://herman-aleron.github.io/aleron-academy/media/webinar.mp4" type="video/mp4"><track kind="captions" srclang="en" label="English" src="https://herman-aleron.github.io/aleron-academy/media/webinar.en.vtt" default></video><button class="vid-play" type="button" aria-label="Play video"><span class="tri" aria-hidden="true"></span><span class="vt">Watch · 0:55</span></button></div><figcaption>Andrew Smith, Aleron Fire Protection</figcaption></figure></div>
 <div>
 <form class="form" id="reg-form" novalidate>
 <div class="row"><label>Name<input name="name" autocomplete="name" required></label><label>Email<input name="email" type="email" autocomplete="email" required></label></div>
@@ -233,7 +233,7 @@ function px(name, params, custom) {
 /* ===== CONFIG ===== */
 const WEBINAR = {
   title: 'How to Get Into Fire Stopping - Aleron Academy live webinar',
-  start: '2026-12-09T18:00:00Z',   // UTC. December in the UK = GMT, so 18:00Z = 6.00 pm UK time. TO CONFIRM WITH ANDREW
+  start: '2026-12-09T18:00:00Z',   // UTC. December in the UK = GMT, so 18:00Z = 6.00 pm UK time. Date 9 Dec confirmed 26.11.2026
   durationMin: 30,
   joinNote: 'The Zoom link is in your confirmation email.'
 };
@@ -245,6 +245,9 @@ const META_PIXEL_ID = '1476822027723349';         // Meta Pixel ID from Events M
    Optional: put a Web3Forms access key (web3forms.com, sent to LEAD_EMAIL) into WEB3FORMS_KEY
    to use Web3Forms instead. */
 const LEAD_EMAIL = 'academy@aleron.co.uk';
+/* Google Sheet "Aleron Academy_Webinar registrations": every registration is also sent to its Apps Script web app (/exec URL).
+   The sheet sends the confirmation and reminder emails. Empty = off. */
+const SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbyqVVw63DDtV25bRkm98a8xjiGtEqY428jKcpjIV2_-vfD_6gyctVtT0yQ4K36kOcEdeA/exec';
 const FORMSUBMIT_ID = 'dfc84805cae83fa71097dbf59fc8ff13';   // FormSubmit alias of LEAD_EMAIL (hides the address from spam bots)
 const WEB3FORMS_KEY = '3ee7194f-0f79-45f2-b828-e6725bb43661';   // public Web3Forms access key (delivers to academy@aleron.co.uk)
 function leadFields(form, extra) {
@@ -292,7 +295,7 @@ document.querySelectorAll('[data-privacy]').forEach(e => { e.href = PRIVACY_URL;
 /* ===== calendar links ===== */
 const stamp = d => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
 /* Google Calendar: copy-to-my-calendar link of the public event in Aleron's calendar (9 Dec 2026, 18:00 UK). If empty, a link is generated from WEBINAR. */
-const GCAL_EVENT_URL = 'https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=MTRldGprdm5wNjRrMDV2aG52M2FkNzEzY3QgYW5uYUBpbmRvbWUuY28udWs&tmsrc=anna%40indome.co.uk';
+const GCAL_EVENT_URL = 'https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NTNjMzMzaHVjZHQ4bjlhcG1sOWg1M3NyMTAgYWNhZGVteUBhbGVyb24uY28udWs&tmsrc=academy%40aleron.co.uk';
 document.getElementById('gcal').href = GCAL_EVENT_URL || ('https://calendar.google.com/calendar/render?action=TEMPLATE'
   + '&text=' + encodeURIComponent(WEBINAR.title)
   + '&dates=' + stamp(start) + '/' + stamp(end)
@@ -313,9 +316,17 @@ form.addEventListener('submit', async e => {
   const p = new URLSearchParams(location.search);
   ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(k => { if (p.get(k)) data[k] = p.get(k); });
   data.webinar_start = WEBINAR.start; data.funnel = 'A-webinar'; data.page = location.href;
+  // Registration -> Google Sheet. no-cors + keepalive: the request completes even if the tab is closed right after submit.
+  if (SHEET_WEBHOOK) {
+    fetch(SHEET_WEBHOOK, {
+      method: 'POST', mode: 'no-cors', keepalive: true,
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(data)
+    }).catch(x => console.warn('[sheet] not sent:', x && x.message));
+  }
   try {
     const utm = {}; ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k => { if (data[k]) utm[k] = data[k]; });
-    await sendLead(leadFields(form, Object.assign({ 'Webinar': 'How to Get Into Fire Stopping, Wed 2 Dec 2026, 6.00 pm UK', 'Page': location.href.split('#')[0] }, utm)), 'Webinar registration: ' + (data.name || '') + ' (2 Dec)');
+    await sendLead(leadFields(form, Object.assign({ 'Webinar': 'How to Get Into Fire Stopping, Wed 9 Dec 2026, 6.00 pm UK', 'Page': location.href.split('#')[0] }, utm)), 'Webinar registration: ' + (data.name || '') + ' (9 Dec)');
     {
       px('CompleteRegistration', { content_name: 'webinar_2026-12-09', status: 'registered', experience: data.experience || '', value: 0, currency: 'GBP' });
     }
@@ -347,7 +358,7 @@ form.addEventListener('submit', async e => {
 /* ===== share after registration ===== */
 (() => {
   const url = location.href.split('#')[0].split('?')[0];
-  const text = 'Free 30-min webinar: How to Get Into Fire Stopping (Aleron Academy, 2 Dec, 6pm UK). Thought of you: ';
+  const text = 'Free 30-min webinar: How to Get Into Fire Stopping (Aleron Academy, 9 Dec, 6pm UK). Thought of you: ';
   const wa = document.getElementById('sh-wa'), em = document.getElementById('sh-mail'), cp = document.getElementById('sh-copy'), msg = document.getElementById('sh-msg');
   if (!wa) return;
   wa.href = 'https://wa.me/?text=' + encodeURIComponent(text + url);
