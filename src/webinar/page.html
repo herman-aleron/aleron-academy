@@ -257,6 +257,9 @@ const META_PIXEL_ID = '1476822027723349';         // Meta Pixel ID from Events M
    Optional: put a Web3Forms access key (web3forms.com, sent to LEAD_EMAIL) into WEB3FORMS_KEY
    to use Web3Forms instead. */
 const LEAD_EMAIL = 'academy@aleron.co.uk';
+/* Google Sheet "Aleron Academy_Webinar registrations": every registration is also sent to its Apps Script web app (/exec URL).
+   The sheet sends the confirmation and reminder emails. Empty = off. */
+const SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbyqVVw63DDtV25bRkm98a8xjiGtEqY428jKcpjIV2_-vfD_6gyctVtT0yQ4K36kOcEdeA/exec';
 const FORMSUBMIT_ID = 'dfc84805cae83fa71097dbf59fc8ff13';   // FormSubmit alias of LEAD_EMAIL (hides the address from spam bots)
 const WEB3FORMS_KEY = '3ee7194f-0f79-45f2-b828-e6725bb43661';   // public Web3Forms access key (delivers to academy@aleron.co.uk)
 function leadFields(form, extra) {
@@ -325,6 +328,14 @@ form.addEventListener('submit', async e => {
   const p = new URLSearchParams(location.search);
   ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(k => { if (p.get(k)) data[k] = p.get(k); });
   data.webinar_start = WEBINAR.start; data.funnel = 'A-webinar'; data.page = location.href;
+  // Registration -> Google Sheet. no-cors + keepalive: the request completes even if the tab is closed right after submit.
+  if (SHEET_WEBHOOK) {
+    fetch(SHEET_WEBHOOK, {
+      method: 'POST', mode: 'no-cors', keepalive: true,
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(data)
+    }).catch(x => console.warn('[sheet] not sent:', x && x.message));
+  }
   try {
     const utm = {}; ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k => { if (data[k]) utm[k] = data[k]; });
     await sendLead(leadFields(form, Object.assign({ 'Webinar': 'How to Get Into Fire Stopping, Wed 9 Dec 2026, 6.00 pm UK', 'Page': location.href.split('#')[0] }, utm)), 'Webinar registration: ' + (data.name || '') + ' (9 Dec)');
