@@ -278,6 +278,11 @@ async function sendLead(fields, subject) {
 const LINKS = { privacy: 'https://fire-proof.co.uk/privacy-policy', terms: '#', cancellation: '#', complaints: '#' };
 const WEBINAR_URL = 'https://claude.ai/artifact/SiL1b3CvUtGA6mt6aJnUHp'; // TEMP: preview link. Replace with the live webinar page URL
 const TEACHABLE = 'https://aleron-academy.teachable.com/l/bundle/';
+/* Promo code: ?coupon_code=CODE on this page -> Buy buttons go straight to Teachable checkout with the code applied */
+const PURCHASE = 'https://aleron-academy.teachable.com/purchase?product_id=';
+const PID = { stopping: { theory: '6890905', practical: '6890910', nvq: '6890912' }, doors: { theory: '6890908', practical: '6890911', nvq: '6890914' } };
+const COUPON = (() => { const v = new URLSearchParams(location.search).get('coupon_code') || ''; return /^[A-Za-z0-9_-]{2,40}$/.test(v) ? v : ''; })();
+const buyHref = (t, lvl, dflt) => COUPON && PID[t] && PID[t][lvl] ? PURCHASE + PID[t][lvl] + '&coupon_code=' + encodeURIComponent(COUPON) : dflt;
 const COURSES = {
   stopping: { name: 'Fire Stopping', ids: { theory: '809004/testa-s1s2', practical: '809371/1-fire-stopping-and-penetration-sealing-only-theory', nvq: '809372/1-fire-stopping-and-penetration-sealing-theorypractice-on-site' },
     price: { theory: 149, practical: 499, nvq: 1399 }, upg: [['Theory → Practical', 350], ['Theory → Practical + NVQ', 1250], ['Practical → NVQ', 900]] },
@@ -312,7 +317,7 @@ function renderModules() {
     `</div></div>`).join('');
 }
 function renderPrices() {
-  const card = (c, t, lvl, num, title, what, amt, vat, items, note, rec) => `<div class="price${rec ? ' rec' : ''}">${rec ? '<span class="badge">MOST POPULAR</span>' : ''}<span class="lvl">${num}</span><h4>${title}</h4><p class="what">${what}</p><div class="amt">${gbp(amt)}</div><p class="vat">${vat}</p><ul>${items.map(i => `<li>${i}</li>`).join('')}</ul>${note ? `<p class="note">${note}</p>` : ''}<div class="acts"><a class="button" href="${TEACHABLE + c.ids[lvl]}" target="_blank" rel="noopener" data-buy="${lvl}" data-course="${t}">Buy ${title} ↗</a><a class="button ghost" href="#enquire" data-enquire="${lvl}" data-course="${t}">Ask about ${title}</a></div></div>`;
+  const card = (c, t, lvl, num, title, what, amt, vat, items, note, rec) => `<div class="price${rec ? ' rec' : ''}">${rec ? '<span class="badge">MOST POPULAR</span>' : ''}<span class="lvl">${num}</span><h4>${title}</h4><p class="what">${what}</p><div class="amt">${gbp(amt)}</div><p class="vat">${vat}</p><ul>${items.map(i => `<li>${i}</li>`).join('')}</ul>${note ? `<p class="note">${note}</p>` : ''}<div class="acts"><a class="button" href="${buyHref(t, lvl, TEACHABLE + c.ids[lvl])}" target="_blank" rel="noopener" data-buy="${lvl}" data-course="${t}">Buy ${title} ↗</a><a class="button ghost" href="#enquire" data-enquire="${lvl}" data-course="${t}">Ask about ${title}</a></div></div>`;
   document.getElementById('prices').innerHTML = ORDER.map(t => { const c = COURSES[t]; return `<div class="route-block" id="price-${t}"><h3 class="route-h">${esc(c.name)} <span>${esc(BLURB[t])}</span></h3><div class="prices">` +
     card(c, t, 'theory', '01 / ONLINE', 'Theory', 'Learn the work, materials and details you’ll see on site.', c.price.theory, 'incl. VAT', ['Self-paced video lessons', 'Online assessment', 'Aleron Academy Certificate of Completion'], '', false) +
     card(c, t, 'practical', '02 / HANDS-ON', 'Theory + Practical', 'Put the theory into practice and get feedback on your work.', c.price.practical, 'package price, incl. VAT', ['Includes the Theory course', 'A full day of hands-on training with our team', 'Aleron Academy Diploma'], 'Book your practical day once you’ve passed the Theory assessment.', true) +
